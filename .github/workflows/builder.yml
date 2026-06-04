@@ -1,4 +1,4 @@
-name: Ultimate No-Error APK Builder
+name: Ultimate One-Click Script Builder
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 1. Clone Code From Repository
+    - name: 1. Clone Code
       uses: actions/checkout@v4
 
     - name: 2. Setup Java Environment (JDK 17)
@@ -20,58 +20,14 @@ jobs:
     - name: 3. Setup Android SDK Tools
       uses: android-actions/setup-android@v3
 
-    - name: 4. Build Complete Android 14 Asset Structure & License Verification
+    - name: 4. Make Script Executable & Run Automatic Setup Engine
       run: |
-        # Background component synchronization
-        yes | sdkmanager --licenses
-        sdkmanager "platforms;android-34" "build-tools;34.0.0"
-        
-        # Injection of path variables
-        echo "sdk.dir=$ANDROID_HOME" > local.properties
-        echo "android.useAndroidX=true" > gradle.properties
-        
-        # Generation of directory structures for all device scales
-        mkdir -p app/src/main/res/values
-        mkdir -p app/src/main/res/mipmap-anydpi-v26
-        mkdir -p app/src/main/res/mipmap-mdpi
-        mkdir -p app/src/main/res/mipmap-hdpi
-        mkdir -p app/src/main/res/mipmap-xhdpi
-        mkdir -p app/src/main/res/mipmap-xxhdpi
-        
-        # Compilation of app resource styling definitions
-        echo '<resources><style name="Theme.AppCompat.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"/></resources>' > app/src/main/res/values/styles.xml
-        
-        # Android 14 Strict Criteria: Generation of Vector XML Adaptive Background/Foreground
-        echo -e '<vector xmlns:android="http://schemas.android.com/apk/res/android"\n    android:width="108dp"\n    android:height="108dp"\n    android:viewportWidth="108"\n    android:viewportHeight="108">\n  <path\n      android:fillColor="#34DB98"\n      android:pathData="M0,0h108v108h-108z"/>\n</vector>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_background.xml
-        echo -e '<vector xmlns:android="http://schemas.android.com/apk/res/android"\n    android:width="108dp"\n    android:height="108dp"\n    android:viewportWidth="108"\n    android:viewportHeight="108">\n  <path\n      android:fillColor="#FFFFFF"\n      android:pathData="M30,30h48v48h-48z"/>\n</vector>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_foreground.xml
-        
-        # Linking components inside the main adaptive icon manifest reference
-        echo -e '<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">\n    <background android:drawable="@mipmap/ic_launcher_background"/>\n    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>\n</adaptive-icon>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
-        echo -e '<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">\n    <background android:drawable="@mipmap/ic_launcher_background"/>\n    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>\n</adaptive-icon>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
-        
-        # Generation of multi-scale legacy assets using secure raw injection binaries
-        echo "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" | base64 -d > app/src/main/res/mipmap-mdpi/ic_launcher.png
-        cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-hdpi/ic_launcher.png
-        cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xhdpi/ic_launcher.png
-        cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xxhdpi/ic_launcher.png
-        cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-mdpi/ic_launcher_round.png
-        cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-hdpi/ic_launcher_round.png
-        cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
-        cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
-        
-        # Execution of Keystore creation engine for production validation
-        keytool -genkeypair -v -keystore release.keystore -alias masterkey -keyalg RSA -keysize 2048 -validity 10000 -storepass masterpass123 -keypass masterpass123 -dname "CN=master, OU=megaapp, O=factory, L=delhi, S=delhi, C=IN"
+        chmod +x setup_and_build.sh
+        ./setup_and_build.sh
 
-    - name: 5. Fetch and Synchronize Gradle Wrapper Assets
-      run: |
-        gradle wrapper --gradle-version 8.0.2
-        chmod +x gradlew
-
-    - name: 6. Execute Production Signed Compilation Engine
-      run: ./gradlew assembleRelease --no-daemon
-
-    - name: 7. Deploy Valid Signed APK Binary to Storage Artifacts
+    - name: 5. Deliver Production Signed .APK to User
       uses: actions/upload-artifact@v4
       with:
         name: Real-MultiTool-Production-Signed-APK
         path: app/build/outputs/apk/release/*.apk
+        
