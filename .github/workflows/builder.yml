@@ -3,7 +3,7 @@ name: Ultimate One-Click Master Builder
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # Har raat 12 baje automatic background update ke liye
+    - cron: '0 0 * * *'
 
 jobs:
   build:
@@ -29,11 +29,9 @@ jobs:
 
     - name: 5. Auto-Create Structure, Files, Icons & Licenses
       run: |
-        # SDK Licenses aur Tools verify karna
         yes | sdkmanager --licenses
         sdkmanager "platforms;android-34" "build-tools;34.0.0"
         
-        # Pure Android Folders ka structure automatic banana
         mkdir -p app/src/main/java/com/master/megaapp
         mkdir -p app/src/main/res/values
         mkdir -p app/src/main/res/mipmap-anydpi-v26
@@ -42,31 +40,21 @@ jobs:
         mkdir -p app/src/main/res/mipmap-xhdpi
         mkdir -p app/src/main/res/mipmap-xxhdpi
         
-        # Properties aur Paths inject karna
         echo "sdk.dir=$ANDROID_HOME" > local.properties
         echo "android.useAndroidX=true" > gradle.properties
         
-        # 📄 1. settings.gradle generation
+        # 📄 1. settings.gradle
         cat << 'EOF' > settings.gradle
-        pluginManagement {
-            repositories {
-                google()
-                mavenCentral()
-                gradlePluginPortal()
-            }
-        }
+        pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
         dependencyResolutionManagement {
             repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-            repositories {
-                google()
-                mavenCentral()
-            }
+            repositories { google(); mavenCentral() }
         }
         rootProject.name = "Master-Mega-App"
         include ':app'
         EOF
         
-        # 📄 2. Root build.gradle generation
+        # 📄 2. Root build.gradle
         cat << 'EOF' > build.gradle
         plugins {
             id 'com.android.application' version '8.0.2' apply false
@@ -74,11 +62,9 @@ jobs:
         }
         EOF
         
-        # 📄 3. App module build.gradle (APKPure/Uptodown Strict Compliance + Zero Error Bypass)
+        # 📄 3. App module build.gradle (Zero Error Bypass Filters)
         cat << 'EOF' > app/build.gradle
-        plugins {
-            id 'com.android.application'
-        }
+        plugins { id 'com.android.application' }
         android {
             namespace 'com.master.megaapp'
             compileSdk 34
@@ -89,7 +75,6 @@ jobs:
                 versionCode 1
                 versionName "1.0"
             }
-            // 🚨 NO-ERROR CRITICAL INJECTION: Bypasses any layout/resource validation locks
             lintOptions {
                 checkReleaseBuilds false
                 abortOnError false
@@ -117,7 +102,7 @@ jobs:
         }
         EOF
         
-        # 📄 4. AndroidManifest.xml Auto-Generation
+        # 📄 4. AndroidManifest.xml
         cat << 'EOF' > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
         <manifest xmlns:android="http://schemas.android.com/apk/res/android">
@@ -127,7 +112,7 @@ jobs:
                 android:allowBackup="true"
                 android:icon="@mipmap/ic_launcher"
                 android:roundIcon="@mipmap/ic_launcher_round"
-                android:label="Mega Multi-Tool App Hub"
+                android:label="Mega Hub 10Cr Apps"
                 android:supportsRtl="true"
                 android:theme="@style/MasterMegaTheme"
                 android:usesCleartextTraffic="true">
@@ -141,7 +126,7 @@ jobs:
         </manifest>
         EOF
         
-        # 📄 5. 10 Crore App Power Pack WebView Engine + Unity Ads Integration
+        # 📄 5. SELF-CONTAINED HIGH-PERFORMANCE WEB ENGINE (No External Config File Needed)
         cat << 'EOF' > app/src/main/java/com/master/megaapp/MainActivity.java
         package com.master.megaapp;
         import android.os.Bundle;
@@ -169,7 +154,6 @@ jobs:
                 rootLayout.addView(myWebView);
                 setContentView(rootLayout);
                 
-                // Mega Data Booster WebView Configurations
                 WebSettings settings = myWebView.getSettings();
                 settings.setJavaScriptEnabled(true);
                 settings.setDomStorageEnabled(true);
@@ -183,29 +167,42 @@ jobs:
                 
                 myWebView.setWebViewClient(new WebViewClient());
                 myWebView.setWebChromeClient(new WebChromeClient());
-                myWebView.loadUrl("https://multi-tool-mobile-app-678.created.app");
+                
+                // 🚨 IN-APP SELF GENERATING DASHBOARD SCRIPT: Loaded locally inside code!
+                String customHtmlData = "<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+                    + "<style>body{background-color:#121212;color:white;font-family:sans-serif;text-align:center;padding:10px;}"
+                    + ".grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px;}"
+                    + ".btn{background:linear-gradient(135deg,#ff9900,#ff5500);color:white;padding:20px 10px;border-radius:10px;text-decoration:none;font-weight:bold;font-size:14px;box-shadow:0 4px 6px rgba(0,0,0,0.3);display:block;}"
+                    + "h2{color:#ff9900;margin-bottom:2px;}p{font-size:12px;color:#aaa;margin-top:0;}</style></head><body>"
+                    + "<h2>MEGA APP FACTORY HUB</h2><p>10 Crore Apps & Digital Tools Active</p>"
+                    + "<div class='grid'>"
+                    + "<a class='btn' href='https://www.google.com/search?q=trending+ai+tools'>🤖 AI Prompts & Tools</a>"
+                    + "<a class='btn' href='https://apkpure.com/trending'>🔥 Trending Apps Store</a>"
+                    + "<a class='btn' href='https://www.photopea.com'>🎨 Image & Graphics Editors</a>"
+                    + "<a class='btn' href='https://www.ilovepdf.com'>📄 Ultimate PDF Converters</a>"
+                    + "<a class='btn' href='https://www.crazygames.com'>🎮 10,000+ Instant Games</a>"
+                    + "<a class='btn' href='https://www.wikipedia.org'>📚 Knowledge & Tech Hub</a>"
+                    + "<a class='btn' href='https://tinypng.com'>⚡ Fast Media Compressors</a>"
+                    + "<a class='btn' href='https://baconipsum.com'>🛠️ Dev Multi-Tool Kits</a>"
+                    + "</div></body></html>";
+                
+                myWebView.loadDataWithBaseURL(null, customHtmlData, "text/html", "UTF-8", null);
         
                 try {
                     UnityAds.initialize(getApplicationContext(), unityGameId, testMode);
-                } catch (Exception e) {
-                    // Safe execution fallback
-                }
+                } catch (Exception e) {}
                 
-                Toast.makeText(this, "Loading Mega App Hub (10 Cr Functions)...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Self-Contained Master Hub Active!", Toast.LENGTH_SHORT).show();
             }
             
             @Override
             public void onBackPressed() { 
-                if (myWebView.canGoBack()) { 
-                    myWebView.goBack(); 
-                } else { 
-                    super.onBackPressed(); 
-                } 
+                if (myWebView.canGoBack()) { myWebView.goBack(); } else { super.onBackPressed(); } 
             }
         }
         EOF
         
-        # 🎨 6. FIXED: No-Cycle Store Standard Theme Styles & Adaptive Icons Maker
+        # 🎨 Styles & System Icons
         echo '<resources><style name="MasterMegaTheme" parent="Theme.AppCompat.Light.NoActionBar"/></resources>' > app/src/main/res/values/styles.xml
         echo -e '<vector xmlns:android="http://schemas.android.com/apk/res/android"\n    android:width="108dp"\n    android:height="108dp"\n    android:viewportWidth="108"\n    android:viewportHeight="108">\n  <path\n      android:fillColor="#121212"\n      android:pathData="M0,0h108v108h-108z"/>\n</vector>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_background.xml
         echo -e '<vector xmlns:android="http://schemas.android.com/apk/res/android"\n    android:width="108dp"\n    android:height="108dp"\n    android:viewportWidth="108"\n    android:viewportHeight="108">\n  <path\n      android:fillColor="#FFD700"\n      android:pathData="M30,30h48v48h-48z"/>\n</vector>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_foreground.xml
@@ -220,7 +217,7 @@ jobs:
         cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
         cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
         
-        # 🔑 7. Production Keystore Generator (Required for Store Compliance)
+        # 🔑 Keystore Signer
         keytool -genkeypair -v -keystore release.keystore -alias masterkey -keyalg RSA -keysize 2048 -validity 10000 -storepass masterpass123 -keypass masterpass123 -dname "CN=master, OU=megaapp, O=factory, L=delhi, S=delhi, C=IN"
 
     - name: 6. Force Sync Project & Compile Release Signed APK
