@@ -134,7 +134,7 @@ jobs:
         </manifest>
         EOF
         
-        # 📄 5. Crash-Proof WebView + Official Correct Unity Ads SDK Java Code
+        # 📄 5. NO-ERROR IMPLEMENTATION: Safe Interface Base Code
         cat << 'EOF' > app/src/main/java/com/master/megaapp/MainActivity.java
         package com.master.megaapp;
         import android.os.Bundle;
@@ -150,7 +150,7 @@ jobs:
         import com.unity3d.ads.UnityAds;
         import com.unity3d.ads.UnityAdsShowOptions;
         
-        public class MainActivity extends AppCompatActivity {
+        public class MainActivity extends AppCompatActivity implements IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener {
             private String unityGameId = "6129135"; 
             private String adPlacementId = "Interstitial_Android";
             private boolean testMode = false; 
@@ -172,28 +172,40 @@ jobs:
                 myWebView.setWebViewClient(new WebViewClient());
                 myWebView.loadUrl("https://multi-tool-mobile-app-678.created.app");
         
-                UnityAds.initialize(getApplicationContext(), unityGameId, testMode, new IUnityAdsInitializationListener() {
-                    @Override public void onInitializationComplete() { loadUnityAd(); }
-                    @Override public void onInitializationFailed(UnityAds.UnityAdsInitializationError error, String message) {}
-                });
+                UnityAds.initialize(getApplicationContext(), unityGameId, testMode, this);
                 Toast.makeText(this, "Opening Multi-Tool Apps...", Toast.LENGTH_SHORT).show();
             }
-            private void loadUnityAd() {
-                UnityAds.load(adPlacementId, new IUnityAdsLoadListener() {
-                    @Override
-                    public void onAdLoaded(String placementId) {
-                        if (MainActivity.this.isFinishing()) return;
-                        UnityAds.show(MainActivity.this, adPlacementId, new UnityAdsShowOptions(), new IUnityAdsShowListener() {
-                            @Override public void onUnityAdsShowFailure(String p, UnityAds.UnityAdsShowError e, String m) {}
-                            @Override public void onUnityAdsShowStart(String p) {}
-                            @Override public void onUnityAdsShowClick(String p) {}
-                            @Override public void onUnityAdsShowComplete(String p, UnityAds.UnityAdsShowCompletionState s) {}
-                        });
-                    }
-                    @Override 
-                    public void onAdFailedToLoad(String placementId, UnityAds.UnityAdsLoadError error, String message) {}
-                });
+
+            @Override
+            public void onInitializationComplete() {
+                UnityAds.load(adPlacementId, this);
             }
+
+            @Override
+            public void onInitializationFailed(UnityAds.UnityAdsInitializationError error, String message) {}
+
+            @Override
+            public void onAdLoaded(String placementId) {
+                if (!isFinishing()) {
+                    UnityAds.show(this, adPlacementId, new UnityAdsShowOptions(), this);
+                }
+            }
+
+            @Override
+            public void onAdFailedToLoad(String placementId, UnityAds.UnityAdsLoadError error, String message) {}
+
+            @Override
+            public void onUnityAdsShowFailure(String placementId, UnityAds.UnityAdsShowError error, String message) {}
+
+            @Override
+            public void onUnityAdsShowStart(String placementId) {}
+
+            @Override
+            public void onUnityAdsShowClick(String placementId) {}
+
+            @Override
+            public void onUnityAdsShowComplete(String placementId, UnityAds.UnityAdsShowCompletionState state) {}
+            
             @Override
             public void onBackPressed() { if (myWebView.canGoBack()) { myWebView.goBack(); } else { super.onBackPressed(); } }
         }
@@ -227,3 +239,4 @@ jobs:
       with:
         name: Real-MultiTool-Production-Signed-APK
         path: app/build/outputs/apk/release/*.apk
+        
