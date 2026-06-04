@@ -20,7 +20,7 @@ jobs:
     - name: 3. Setup Android SDK Tools
       uses: android-actions/setup-android@v3
 
-    - name: 4. Setup Gradle Environment Directly
+    - name: 4. Setup Global Gradle Build Engine
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: 8.0.2
@@ -216,7 +216,7 @@ jobs:
         # 🔑 7. Production Keystore Generator
         keytool -genkeypair -v -keystore release.keystore -alias masterkey -keyalg RSA -keysize 2048 -validity 10000 -storepass masterpass123 -keypass masterpass123 -dname "CN=master, OU=megaapp, O=factory, L=delhi, S=delhi, C=IN"
 
-    - name: 6. Force Project Sync & Build Production Release APK
+    - name: 6. Force Sync Project & Compile Release Signed APK
       run: |
         gradle projects --no-daemon
         gradle :app:assembleRelease --no-daemon
