@@ -20,9 +20,14 @@ jobs:
     - name: 3. Setup Android SDK Tools
       uses: android-actions/setup-android@v3
 
-    - name: 4. Auto-Create Structure, Files, Icons & Licenses
+    - name: 4. Setup Gradle Environment Directly
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: 8.0.2
+
+    - name: 5. Auto-Create Structure, Files, Icons & Licenses
       run: |
-        # SDK Licenses aur Tools download karna
+        # SDK Licenses aur Tools verify karna
         yes | sdkmanager --licenses
         sdkmanager "platforms;android-34" "build-tools;34.0.0"
         
@@ -39,7 +44,7 @@ jobs:
         echo "sdk.dir=$ANDROID_HOME" > local.properties
         echo "android.useAndroidX=true" > gradle.properties
         
-        # 📄 1. settings.gradle automatic generate karna
+        # 📄 1. settings.gradle generation
         cat << 'EOF' > settings.gradle
         pluginManagement {
             repositories {
@@ -59,7 +64,7 @@ jobs:
         include ':app'
         EOF
         
-        # 📄 2. Root build.gradle automatic generate karna
+        # 📄 2. Root build.gradle generation
         cat << 'EOF' > build.gradle
         plugins {
             id 'com.android.application' version '8.0.2' apply false
@@ -211,15 +216,10 @@ jobs:
         # 🔑 7. Production Keystore Generator
         keytool -genkeypair -v -keystore release.keystore -alias masterkey -keyalg RSA -keysize 2048 -validity 10000 -storepass masterpass123 -keypass masterpass123 -dname "CN=master, OU=megaapp, O=factory, L=delhi, S=delhi, C=IN"
 
-    - name: 5. Download and Build Gradle Wrapper Tools
-      run: |
-        gradle wrapper --gradle-version 8.0.2
-        chmod +x gradlew
-
     - name: 6. Force Project Sync & Build Production Release APK
       run: |
-        ./gradlew projects --no-daemon
-        ./gradlew :app:assembleRelease --no-daemon
+        gradle projects --no-daemon
+        gradle :app:assembleRelease --no-daemon
 
     - name: 7. Deliver Signed Production .APK to User
       uses: actions/upload-artifact@v4
