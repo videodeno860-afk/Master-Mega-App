@@ -1,0 +1,250 @@
+#!/bin/bash
+# =================================================================
+# MASTER AUTOMATION SCRIPT FOR APP FACTORY MODEL
+# =================================================================
+set -e # Agar koi bhi command fail ho toh script vahin ruk jaye
+
+echo "🚀 STEP 1: Syncing Android SDK Components & Auto-Accepting Licenses..."
+yes | sdkmanager --licenses
+sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
+echo "📂 STEP 2: Creating Full Android Directory Structure Automatically..."
+mkdir -p app/src/main/java/com/master/megaapp
+mkdir -p app/src/main/res/values
+mkdir -p app/src/main/res/mipmap-anydpi-v26
+mkdir -p app/src/main/res/mipmap-mdpi
+mkdir -p app/src/main/res/mipmap-hdpi
+mkdir -p app/src/main/res/mipmap-xhdpi
+mkdir -p app/src/main/res/mipmap-xxhdpi
+
+echo "⚙️ STEP 3: Injecting Environmental Properties & SDK Paths..."
+echo "sdk.dir=$ANDROID_HOME" > local.properties
+echo "android.useAndroidX=true" > gradle.properties
+
+echo "📝 STEP 4: Creating Project Level Settings Configs..."
+cat << 'EOF' > settings.gradle
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Master-Mega-App"
+include ':app'
+EOF
+
+cat << 'EOF' > build.gradle
+plugins {
+    id 'com.android.application' version '8.0.2' apply false
+    id 'com.android.library' version '8.0.2' apply false
+}
+EOF
+
+echo "🛠️ STEP 5: Creating App Module Build Config with Auto-Signing..."
+cat << 'EOF' > app/build.gradle
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.master.megaapp'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.master.megaapp"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../release.keystore")
+            storePassword "masterpass123"
+            keyAlias "masterkey"
+            keyPassword "masterpass123"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.unity3d.ads:unity-ads:4.12.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+}
+EOF
+
+echo "🔐 STEP 6: Generating Android App Manifest and Permissions..."
+cat << 'EOF' > app/src/main/AndroidManifest.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="Multi-Tool Mobile App"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+EOF
+
+echo "☕ STEP 7: Creating Crash-Proof WebView & Real Unity Ads Java Source Code..."
+cat << 'EOF' > app/src/main/java/com/master/megaapp/MainActivity.java
+package com.master.megaapp;
+
+import android.os.Bundle;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import com.unity3d.ads.IUnityAdsInitializationListener;
+import com.unity3d.ads.IUnityAdsLoadListener;
+import com.unity3d.ads.IUnityAdsShowListener;
+import com.unity3d.ads.UnityAds;
+import com.unity3d.ads.UnityAdsShowOptions;
+
+public class MainActivity extends AppCompatActivity {
+
+    private String unityGameId = "6129135"; 
+    private String adPlacementId = "Interstitial_Android";
+    private boolean testMode = false; 
+    private WebView myWebView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        FrameLayout rootLayout = new FrameLayout(this);
+        rootLayout.setLayoutParams(new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, 
+                FrameLayout.LayoutParams.MATCH_PARENT));
+        
+        myWebView = new WebView(this);
+        myWebView.setLayoutParams(new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, 
+                FrameLayout.LayoutParams.MATCH_PARENT));
+        
+        rootLayout.addView(myWebView);
+        setContentView(rootLayout);
+        
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        
+        myWebView.setWebViewClient(new WebViewClient());
+        myWebView.loadUrl("https://multi-tool-mobile-app-678.created.app");
+
+        UnityAds.initialize(getApplicationContext(), unityGameId, testMode, new IUnityAdsInitializationListener() {
+            @Override
+            public void onInitializationComplete() {
+                runOnUiThread(() -> Toast.makeText(MainActivity.this, "Unity Engine Init Success", Toast.LENGTH_SHORT).show());
+                loadUnityAd();
+            }
+
+            @Override
+            public void onInitializationFailed(UnityAds.UnityAdsInitializationError error, String message) {
+                runOnUiThread(() -> Toast.makeText(MainActivity.this, "Init Failed: " + message, Toast.LENGTH_LONG).show());
+            }
+        });
+
+        Toast.makeText(this, "Opening Multi-Tool Apps...", Toast.LENGTH_SHORT).show();
+    }
+
+    private void loadUnityAd() {
+        UnityAds.load(adPlacementId, new IUnityAdsLoadListener() {
+            @Override
+            public void onAdLoaded(String placementId) {
+                if (MainActivity.this.isFinishing()) return;
+                UnityAds.show(MainActivity.this, adPlacementId, new UnityAdsShowOptions(), new IUnityAdsShowListener() {
+                    @Override
+                    public void onUnityAdsShowFailure(String placementId, UnityAds.UnityAdsShowError error, String message) {}
+                    @Override
+                    public void onUnityAdsShowStart(String placementId) {}
+                    @Override
+                    public void onUnityAdsShowClick(String placementId) {}
+                    @Override
+                    public void onUnityAdsShowComplete(String placementId, UnityAds.UnityAdsShowCompletionState state) {}
+                });
+            }
+
+            @Override
+            public void onAdFailedToLoad(String placementId, UnityAds.UnityAdsLoadError error, String message) {
+                runOnUiThread(() -> Toast.makeText(MainActivity.this, "Ad Load Failed: " + message, Toast.LENGTH_SHORT).show());
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (myWebView.canGoBack()) {
+            myWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+}
+EOF
+
+echo "🎨 STEP 8: Auto-Generating Android 14 Adaptive Vector Icons & Styles..."
+echo '<resources><style name="Theme.AppCompat.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"/></resources>' > app/src/main/res/values/styles.xml
+
+echo -e '<vector xmlns:android="http://schemas.android.com/apk/res/android"\n    android:width="108dp"\n    android:height="108dp"\n    android:viewportWidth="108"\n    android:viewportHeight="108">\n  <path\n      android:fillColor="#34DB98"\n      android:pathData="M0,0h108v108h-108z"/>\n</vector>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_background.xml
+echo -e '<vector xmlns:android="http://schemas.android.com/apk/res/android"\n    android:width="108dp"\n    android:height="108dp"\n    android:viewportWidth="108"\n    android:viewportHeight="108">\n  <path\n      android:fillColor="#FFFFFF"\n      android:pathData="M30,30h48v48h-48z"/>\n</vector>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_foreground.xml
+
+echo -e '<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">\n    <background android:drawable="@mipmap/ic_launcher_background"/>\n    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>\n</adaptive-icon>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+echo -e '<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">\n    <background android:drawable="@mipmap/ic_launcher_background"/>\n    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>\n</adaptive-icon>' > app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+
+echo "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" | base64 -d > app/src/main/res/mipmap-mdpi/ic_launcher.png
+cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-hdpi/ic_launcher.png
+cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xhdpi/ic_launcher.png
+cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+cp app/src/main/res/mipmap-mdpi/ic_launcher.png app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+
+echo "🔑 STEP 9: Creating Production Keystore Certificate Key..."
+keytool -genkeypair -v -keystore release.keystore -alias masterkey -keyalg RSA -keysize 2048 -validity 10000 -storepass masterpass123 -keypass masterpass123 -dname "CN=master, OU=megaapp, O=factory, L=delhi, S=delhi, C=IN"
+
+echo "🔨 STEP 10: Building Gradle Wrapper Environment Assets..."
+gradle wrapper --gradle-version 8.0.2
+chmod +x gradlew
+
+echo "🏗️ STEP 11: Compiling Final Production Signed Release APK..."
+./gradlew assembleRelease --no-daemon
+
+echo "✅ SUCCESS: All operations completed! Output binary ready."
