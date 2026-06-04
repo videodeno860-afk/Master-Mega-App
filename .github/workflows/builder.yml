@@ -134,7 +134,7 @@ jobs:
         </manifest>
         EOF
         
-        # 📄 5. Crash-Proof WebView + Real Unity Ads Java Code
+        # 📄 5. Crash-Proof WebView + Official Correct Unity Ads SDK Java Code
         cat << 'EOF' > app/src/main/java/com/master/megaapp/MainActivity.java
         package com.master.megaapp;
         import android.os.Bundle;
@@ -190,7 +190,8 @@ jobs:
                             @Override public void onUnityAdsShowComplete(String p, UnityAds.UnityAdsShowCompletionState s) {}
                         });
                     }
-                    @Override public void onAdFailedToLoad(String p, UnityAds.UnityAdsLoadError e, String m) {}
+                    @Override 
+                    public void onAdFailedToLoad(String placementId, UnityAds.UnityAdsLoadError error, String message) {}
                 });
             }
             @Override
