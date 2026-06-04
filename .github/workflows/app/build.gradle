@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.master.megaapp'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.master.megaapp"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // Auto-Signing engine configuration for valid release package
+    signingConfigs {
+        release {
+            storeFile file("../release.keystore")
+            storePassword "masterpass123"
+            keyAlias "masterkey"
+            keyPassword "masterpass123"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Official Stable Unity Ads SDK
+    implementation 'com.unity3d.ads:unity-ads:4.12.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+}
+
