@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *' # Roz raat ko automatic bina hath lagaye chalega
+    - cron: '0 0 * * *' # Roz raat ko bina hath lagaye chalega
 
 jobs:
   build-and-deploy:
@@ -21,28 +21,18 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # 1. Android environment ko scratch se automatic initialize karna (Bina Error Setup)
+    # 1. Android environment ko automatic taiyar karna
     - name: ⚙️ Setup Android Build Environment
       run: |
-        echo "Initializing safe build structure..."
         mkdir -p app/src/main/java/com/hub
         mkdir -p app/src/main/res/values
         if [ ! -f gradlew ]; then
           gradle wrapper --gradle-version 8.0
         fi
 
-    # 2. 6 Alag-Alag Categories Ke Apps Ek Ke Baad Ek Auto Loop Mein Banana
+    # 2. 6 Alag-Alag Categories Ke Apps Ek Ke Baad Ek Loop Mein Banana
     - name: 🏗️ Auto-Generate & Build Multi-Category Apps
       run: |
-        # Matrix variables manually inside a single script execution loop to avoid conflicts
-        declare -A apps
-        apps["com.hub.mega10cr.downloader"]="⚡ Super Fast Video Downloader Pro|Tools|https://en.savefrom.net"
-        apps["com.hub.mega10cr.lyricsmagic"]="🎵 Hit Bollywood Song Lyrics 2026|Books_and_Reference|https://www.lyrics.com"
-        apps["com.hub.mega10cr.gamebooster"]="🚀 4X Speed Ultra Game Booster|Gaming_Tools|https://www.crazygames.com"
-        apps["com.hub.mega10cr.statushub"]="🔥 Daily Viral Status & Shayari|Social_Entertainment|https://sharechat.com"
-        apps["com.hub.mega10cr.bgcleaner"]="📸 Magic Photo BG Remover|Photography|https://www.remove.bg"
-        apps["com.hub.mega10cr.coinchecker"]="💰 Crypto & Daily Gold Rate Tracker|Finance|https://coinmarketcap.com"
-
         mkdir -p output_apks
         mkdir -p public
 
@@ -53,69 +43,54 @@ jobs:
         echo "<p>Download official premium utility tools, entertainment hubs, and category-defining applications for free!</p>" >> public/index.html
         echo "<div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:40px auto;'> " >> public/index.html
 
-        for id in "${!apps[@]}"; do
-          IFS='|' read -r name category url <<< "${apps[$id]}"
-          echo "Processing Category App: $name"
+        # App Data list separation to prevent bash syntax issues
+        declare -A app_names app_cats app_urls
+        
+        app_names["downloader"]="⚡ Super Fast Video Downloader Pro"
+        app_cats["downloader"]="Tools"
+        app_urls["downloader"]="https://en.savefrom.net"
 
-          # Creating safe Android architecture elements
-          cat <<EOF > app/src/main/AndroidManifest.xml
-          <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="$id">
-              <uses-permission android:name="android.permission.INTERNET"/>
-              <application android:label="$name" android:theme="@android:style/Theme.NoTitleBar">
-                  <activity android:name="com.hub.MainActivity" android:exported="true">
-                      <intent-filter>
-                          <action android:name="android.intent.action.MAIN"/>
-                          <category android:name="android.intent.category.LAUNCHER"/>
-                      </intent-filter>
-                  </activity>
-              </application>
-          </manifest>
-          EOF
+        app_names["lyricsmagic"]="🎵 Hit Bollywood Song Lyrics 2026"
+        app_cats["lyricsmagic"]="Books_and_Reference"
+        app_urls["lyricsmagic"]="https://www.lyrics.com"
 
-          cat <<EOF > app/src/main/java/com/hub/MainActivity.java
-          package com.hub;
-          import android.app.Activity;
-          import android.os.Bundle;
-          import android.webkit.WebView;
-          import android.webkit.WebViewClient;
-          import android.widget.Toast;
+        app_names["gamebooster"]="🚀 4X Speed Ultra Game Booster"
+        app_cats["gamebooster"]="Gaming_Tools"
+        app_urls["gamebooster"]="https://www.crazygames.com"
 
-          public class MainActivity extends Activity {
-              private String unityGameId = "6129135"; 
-              @Override
-              protected void onCreate(Bundle savedInstanceState) {
-                  super.onCreate(savedInstanceState);
-                  WebView webView = new WebView(this);
-                  webView.getSettings().setJavaScriptEnabled(true);
-                  webView.setWebViewClient(new WebViewClient());
-                  webView.loadUrl("$url");
-                  setContentView(webView);
-                  Toast.makeText(this, "Category: $category | Premium Server Active", Toast.LENGTH_LONG).show();
-                  Toast.makeText(this, "Share with 3 friends on WhatsApp to unlock Premium features!", Toast.LENGTH_LONG).show();
-              }
-          }
-          EOF
+        app_names["statushub"]="🔥 Daily Viral Status & Shayari"
+        app_cats["statushub"]="Social_Entertainment"
+        app_urls["statushub"]="https://sharechat.com"
 
-          cat <<EOF > app/build.gradle
-          plugins { id 'com.android.application' }
-          android {
-              compileSdk 33
-              defaultConfig {
-                  applicationId "$id"
-                  minSdk 21
-                  targetSdk 33
-                  versionCode 1
-                  versionName "1.0"
-              }
-          }
-          EOF
+        app_names["bgcleaner"]="📸 Magic Photo BG Remover"
+        app_cats["bgcleaner"]="Photography"
+        app_urls["bgcleaner"]="https://www.remove.bg"
 
-          # Mock compilation block to safely generate the package asset footprint
+        app_names["coinchecker"]="💰 Crypto & Daily Gold Rate Tracker"
+        app_cats["coinchecker"]="Finance"
+        app_urls["coinchecker"]="https://coinmarketcap.com"
+
+        for key in "${!app_names[@]}"; do
+          id="com.hub.mega10cr.$key"
+          name="${app_names[$key]}"
+          category="${app_cats[$key]}"
+          url="${app_urls[$key]}"
+
+          echo "Generating files for: $name"
+
+          # Pure string redirection without EOF token blocks to completely avoid EOF syntax errors
+          echo "<manifest xmlns:android='http://schemas.android.com/apk/res/android' package='$id'><uses-permission android:name='android.permission.INTERNET'/><application android:label='$name' android:theme='@android:style/Theme.NoTitleBar'><activity android:name='com.hub.MainActivity' android:exported='true'><intent-filter><action android:name='android.intent.action.MAIN'/><category android:name='android.intent.category.LAUNCHER'/></intent-filter></activity></application></manifest>" > app/src/main/AndroidManifest.xml
+
+          echo "package com.hub; import android.app.Activity; import android.os.Bundle; import android.webkit.WebView; import android.webkit.WebViewClient; import android.widget.Toast; public class MainActivity extends Activity { private String unityGameId = \"6129135\"; @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); WebView webView = new WebView(this); webView.getSettings().setJavaScriptEnabled(true); webView.setWebViewClient(new WebViewClient()); webView.loadUrl(\"$url\"); setContentView(webView); Toast.makeText(this, \"Category: $category\", Toast.LENGTH_LONG).show(); } }" > app/src/main/java/com/hub/MainActivity.java
+
+          echo "plugins { id 'com.android.application' } android { compileSdk 33; defaultConfig { applicationId '$id'; minSdk 21; targetSdk 33; versionCode 1; versionName '1.0' } }" > app/build.gradle
+
+          # Creating actual dummy apk files for secure asset tracking
           mkdir -p app/build/outputs/apk/release
-          echo "Generated APK simulation payload data for multi-store deployment validation" > app/build/outputs/apk/release/$id-release.apk
+          echo "APK Build simulation for $id" > app/build/outputs/apk/release/$id-release.apk
           cp app/build/outputs/apk/release/$id-release.apk output_apks/
 
-          # Adding the current active category application step dynamically to the website index build
+          # Adding elements directly into index html array structure
           echo "<div style='background:#1e1e2f; padding:20px; border-radius:15px; border:2px solid #3d3d5c; text-align:left;'>" >> public/index.html
           echo "<span style='background:#FF9800; padding:4px 8px; border-radius:5px; font-size:12px; font-weight:bold;'>$category</span>" >> public/index.html
           echo "<h3 style='margin:10px 0;'>$name</h3>" >> public/index.html
