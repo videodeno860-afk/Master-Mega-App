@@ -1,2 +1,2 @@
-applovin.com, account-placeholder, DIRECT
 google.com, pub-PENDING_USER_INPUT, DIRECT, f08c47fec0942fa0
+applovin.com, account-placeholder, DIRECT
