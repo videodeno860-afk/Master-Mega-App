@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 2 * * *' # Roz raat ko automatic bina galti ke update hoga
+    - cron: '0 2 * * *' # Roz raat ko bina galti ke automatic chale aur scale kare
 
 jobs:
   build-and-deploy-factory:
@@ -15,29 +15,24 @@ jobs:
     - name: 📥 Checkout Code Repository
       uses: actions/checkout@v3
 
-    - name: ⚙️ Setup Dynamic Directory Structure
+    - name: ⚙️ Setup Mass Directory Infrastructure
       run: |
-        # 15 Alag-Alag stand-alone websites ke folders ek baar mein initialize karna
+        # Creating folders for 30 high-volume search topics automatically
         mkdir -p public
-        mkdir -p public/downloader
-        mkdir -p public/tic-tac-toe
-        mkdir -p public/lyrics-finder
-        mkdir -p public/crypto-tracker
-        mkdir -p public/ai-prompter
-        mkdir -p public/shayari-hub
-        mkdir -p public/bmi-calculator
-        mkdir -p public/click-speed
-        mkdir -p public/word-counter
-        mkdir -p public/age-calculator
-        mkdir -p public/qr-generator
-        mkdir -p public/expense-tracker
-        mkdir -p public/todo-cloud
-        mkdir -p public/weather-app
-        mkdir -p public/random-quotes
+        mkdir -p public/insta-downloader public/fb-video-saver public/yt-shorts-downloader
+        mkdir -p public/free-fire-codes public/pubg-bgmi-redeem public/coin-master-links
+        mkdir -p public/sarkari-result-hub public/job-alert-2026 public/exam-admit-card
+        mkdir -p public/dream11-prediction public/ipl-live-score public/cricket-news
+        mkdir -p public/love-shayari public/attitude-status public/sad-quotes
+        mkdir -p public/ai-image-prompt public/chatgpt-hacks public/ai-text-writer
+        mkdir -p public/crypto-live public/gold-rate-today public/stock-market-tips
+        mkdir -p public/mp3-converter public/pdf-merge-tool public/background-remover
+        mkdir -p public/bmi-calc public/calorie-counter public/water-reminder
+        mkdir -p public/qr-generator public/age-calculator public/password-generator
 
-    - name: 🏗️ Automate Multi-Category Production Line
+    - name: 🏗️ Run Massive Traffic Production Engine
       run: |
-        # Fetching Keys safely from GitHub Secrets
+        # Fetching network codes from secrets safely
         APPLOVIN_KEY="${{ secrets.APPLOVIN_SDK_KEY }}"
         if [ -z "$APPLOVIN_KEY" ]; then APPLOVIN_KEY="applovin-PENDING"; fi
 
@@ -49,131 +44,94 @@ jobs:
 
         UNITY_ID="6129135"
 
-        # Anti-Block App-Ads.txt Generation
+        # Anti-Block App-Ads.txt Layer
         echo "applovin.com, account-placeholder, DIRECT" > public/app-ads.txt
         echo "adsterra.com, placeholder-id, DIRECT" >> public/app-ads.txt
 
-        # --- QUAD-NETWORK AD INJECTION SYSTEM ---
-        inject_quad_ads() {
-          local zone_name=$1
+        # Multi-Network Revenue Embedder
+        inject_triple_ads() {
+          local slot_id=$1
           echo "<script src='https://cdn.jsdelivr.net/npm/unity-ads-web-sdk@latest/dist/unity-ads.js'></script>"
           echo "<script src='https://yandex.ru/ads/system/context.js' async></script>"
           echo "<script>"
-          echo "  function launchInterstitial() { alert('[Unity/Adsterra Interstitial] Loading High CPC Matrix...'); }"
-          echo "  function launchRewarded() { alert('[Unity/AppLovin Video] Buffering Full Earning Ad...'); }"
+          echo "  function showInterstitial() { alert('[Adsterra/Unity Interstitial Active]'); }"
+          echo "  function showRewarded() { alert('[Unity/AppLovin Video Loading]'); }"
           echo "</script>"
           
-          # Yandex Top Banner Placeholder
-          echo "<div style='background:#1a1a24; margin:15px auto; padding:12px; border:2px dashed #ffcc00; border-radius:8px; text-align:center; max-width:700px; color:#ffcc00; font-weight:bold; font-size:13px;'>"
-          echo "  🇷🇺 YANDEX BANNER LIVE $\rightarrow$ NODE: $zone_name ($YANDEX_ID)"
-          echo "</div>"
-          
-          # Adsterra Display Placement Placeholder
-          echo "<div style='background:#11111a; margin:15px auto; padding:12px; border:2px solid #e91e63; border-radius:8px; text-align:center; max-width:700px; color:#e91e63; font-weight:bold; font-size:13px;'>"
-          echo "  💥 ADSTERRA SMART CPM PLACEMENT ($ADSTERRA_KEY)"
+          # High CPC Placements
+          echo "<div style='background:#1a1a24; margin:15px auto; padding:10px; border:2px dashed #ffcc00; border-radius:6px; text-align:center; max-width:720px; color:#ffcc00; font-size:12px; font-weight:bold;'>🇷🇺 YANDEX DYNAMIC IMPRESSION ZONE ($YANDEX_ID)</div>"
+          echo "<div style='background:#11111a; margin:15px auto; padding:10px; border:2px solid #e91e63; border-radius:6px; text-align:center; max-width:720px; color:#e91e63; font-size:12px; font-weight:bold;'>💥 ADSTERRA SMART RATE BANNER ($ADSTERRA_KEY)</div>"
+        }
+
+        inject_bottom_triggers() {
+          echo "<div style='background:#151522; max-width:720px; padding:15px; margin:20px auto; border:2px solid #ff5722; border-radius:8px; text-align:center;'>"
+          echo "  <button onclick='showInterstitial()' style='background:#ff9800; color:white; border:none; padding:10px 20px; font-weight:bold; border-radius:4px; margin:5px; cursor:pointer;'>📺 Load High CPM Interstitial</button>"
+          echo "  <button onclick='showRewarded()' style='background:#009688; color:white; border:none; padding:10px 20px; font-weight:bold; border-radius:4px; margin:5px; cursor:pointer;'>💎 Unlock Premium via Video</button>"
           echo "</div>"
         }
 
-        inject_bottom_ad_triggers() {
-          # High Engagement User Reward Action Hub
-          echo "<div style='background:#151522; max-width:700px; padding:15px; margin:20px auto; border:2px solid #ff5722; border-radius:10px; text-align:center;'>"
-          echo "  <button onclick='launchInterstitial()' style='background:#ff9800; color:white; border:none; padding:10px 20px; font-weight:bold; border-radius:5px; margin:5px; cursor:pointer;'>📺 Popunder / Interstitial</button>"
-          echo "  <button onclick='launchRewarded()' style='background:#009688; color:white; border:none; padding:10px 20px; font-weight:bold; border-radius:5px; margin:5px; cursor:pointer;'>💎 Watch Premium Video</button>"
-          echo "</div>"
-        }
-
-        # --- 15 STANDALONE APPLICATIONS PRODUCTION ---
-        declare -A site_titles site_dirs site_contents
+        # --- DATABASE OF 30 HIGH-SEARCH KEYWORD PAGES ---
+        declare -A titles dirs concepts
         
-        site_dirs["downloader"]="downloader"
-        site_titles["downloader"]="⚡ Video Link Parser & Downloader Pro"
-        site_contents["downloader"]="<div style='padding:30px; background:#222; border-radius:10px; max-width:500px; margin:20px auto;'><input type='text' placeholder='Paste Video Link Here...' style='width:80%; padding:10px; border-radius:5px; border:none;'><br><br><button onclick='alert(\"Parsing Link...\")' style='background:#4CAF50; color:white; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;'>Download Video</button></div>"
+        dirs[1]="insta-downloader"; titles[1]="📸 Instagram Video & Reels Downloader Pro Online"; concepts[1]="Paste Instagram link to extract high-quality MP4 video instantly."
+        dirs[2]="fb-video-saver"; titles[2]="🌐 Facebook HD Video Downloader & Saver Tool"; concepts[2]="Download private and public Facebook videos in one click."
+        dirs[3]="yt-shorts-downloader"; titles[3]="⚡ YouTube Shorts & Video Downloader Free Node"; concepts[3]="Fastest server to fetch YouTube videos directly to mobile storage."
+        dirs[4]="free-fire-codes"; titles[4]="🎮 Free Fire Max Daily Active Redeem Codes 2026"; concepts[4]="Updated daily list of active Garena Free Fire diamonds and skin codes."
+        dirs[5]="pubg-bgmi-redeem"; titles[5]="🚀 BGMI / PUBG Mobile Premium Redeem Center"; concepts[5]="Claim free UC, weapon skins, and custom outfits updates."
+        dirs[6]="coin-master-links"; titles[6]="🐷 Coin Master Daily Free Spins & Coins Links"; concepts[6]="Get 25+ free spins and million coin rewards updated every hour."
+        dirs[7]="sarkari-result-hub"; titles[7]="📰 Sarkari Result 2026 - Latest Govt Jobs Online"; concepts[7]="Check recent government job forms, application deadlines, and statuses."
+        dirs[8]="job-alert-2026"; titles[8]="💼 Free Job Alert - Daily Employment News Hub"; concepts[8]="State-wise and central recruitment notifications for graduates."
+        dirs[9]="exam-admit-card"; titles[9]="📅 Download Competitive Exam Admit Cards Live"; concepts[9]="Direct official links to download admit cards and exam dates."
+        dirs[10]="dream11-prediction"; titles[10]="🏏 Dream11 Team Prediction & Expert Fantasy Tips"; concepts[10]="Today match playing 11, pitch reports, and grand league captain choices."
+        dirs[11]="ipl-live-score"; titles[11]="🔥 Live IPL Match Scorecard & Ball-by-Ball Updates"; concepts[11]="Fastest real-time cricket scoring board and commentary matrix."
+        dirs[12]="cricket-news"; titles[12]="📰 Breaking Cricket News, Rumors & Team Updates"; concepts[12]="Latest press releases from ICC, BCCI, and international match insights."
+        dirs[13]="love-shayari"; titles[13]="💖 Romantic True Love Shayari & Status for WhatsApp"; concepts[13]="Best Hindi love lines to share with your girlfriend/boyfriend."
+        dirs[14]="attitude-status"; titles[14]="😎 Royal Boy & Girl Attitude Status Collection"; concepts[14]="Dabang attitude captions and killer lines for Instagram bios."
+        dirs[15]="sad-quotes"; titles[15]="💔 Heartbroken Sad Shayari & Emotional Status"; concepts[15]="Deep painful lines and broken heart status for Facebook profiles."
+        dirs[16]="ai-image-prompt"; titles[16]="🤖 Midjourney & Bing AI Art Image Prompt Generator"; concepts[16]="Copy high-converting photorealistic artistic design description scripts."
+        dirs[17]="chatgpt-hacks"; titles[17]="🧠 Secret ChatGPT Prompts for Automated Content Writing"; concepts[17]="Unlock full power of AI for blogging, copywriting, and coding."
+        dirs[18]="ai-text-writer"; titles[18]="📝 Free AI Paragraph & Essay Rewriter Studio"; concepts[18]="Generate human-like unique text articles within seconds automatically."
+        dirs[19]="crypto-live"; titles[19]="💰 Live Bitcoin, Ethereum & Crypto Price Index Tracker"; concepts[19]="Real-time market caps, token dump notifications, and graphs."
+        dirs[20]="gold-rate-today"; titles[20]="📈 22K & 24K Gold Rate Today - Live Indian Cities"; concepts[20]="Check current gold and silver price trends per 10 grams."
+        dirs[21]="stock-market-tips"; titles[21]="📊 NSE/BSE Stock Market Tips & Intraday Guide"; concepts[21]="Top gaining shares, long-term investments, and market analytics."
+        dirs[22]="mp3-converter"; titles[22]="🎵 Universal Video to MP3 Audio Converter Tool"; concepts[22]="Extract crystal clear audio tracks from any video file online."
+        dirs[23]="pdf-merge-tool"; titles[23]="📄 Combine PDF Files Online - Free Merge Tool"; concepts[23]="Join multiple documents into a single organized PDF file safely."
+        dirs[24]="background-remover"; titles[24]="📸 Auto Image Background Remover AI Engine"; concepts[24]="Make your image backgrounds transparent in under 5 seconds."
+        dirs[25]="bmi-calc"; titles[25]="🏃 Online BMI Calculator - Body Mass Index Tracker"; concepts[25]="Check your fitness score based on standard height and weight charts."
+        dirs[26]="calorie-counter"; titles[26]="🍎 Daily Food Calorie Counter & Nutrition Analyzer"; concepts[26]="Track your protein, carbs, and fat intake for weight loss goals."
+        dirs[27]="water-reminder"; titles[27]="💧 Hydro Tracker - Daily Water Drink Log Reminder"; concepts[27]="Calculate how much water your body needs based on activity levels."
+        dirs[28]="qr-generator"; titles[28]="📷 Free URL to Custom Business QR Code Maker"; concepts[28]="Generate high-resolution scannable codes for links or WiFi."
+        dirs[29]="age-calculator"; titles[29]="📅 Birth Date Age Calculator - Years, Months, Days"; concepts[29]="Find out exactly how many days you have lived since birth."
+        dirs[30]="password-generator"; titles[30]="🔒 Strong Random Password Generator - 100% Secure"; concepts[30]="Create unhackable passwords with symbols and capital letters."
 
-        site_dirs["tic-tac-toe"]="tic-tac-toe"
-        site_titles["tic-tac-toe"]="🎮 High-Speed Tic-Tac-Toe Arcade Game"
-        site_contents["tic-tac-toe"]="<div style='font-size:24px; padding:40px; background:#1e1e2f; border-radius:10px; max-width:400px; margin:20px auto; color:#00ffcc; font-weight:bold;'>🎮 [HTML5 Tic-Tac-Toe Game Engine Ready]</div>"
-
-        site_dirs["lyrics-finder"]="lyrics-finder"
-        site_titles["lyrics-finder"]="🎵 Instant Bollywood & Regional Lyrics Search"
-        site_contents["lyrics-finder"]="<div style='padding:20px;'><input type='text' placeholder='Search Song Name...' style='padding:10px; width:70%; border-radius:5px;'><button style='padding:10px; background:#9c27b0; color:white; border:none; margin-left:5px; border-radius:5px;'>Search</button></div>"
-
-        site_dirs["crypto-tracker"]="crypto-tracker"
-        site_titles["crypto-tracker"]="💰 Real-Time Crypto Capitalization Dashboard"
-        site_contents["crypto-tracker"]="<div style='background:#161625; padding:30px; border-radius:10px; max-width:500px; margin:20px auto;'>📈 BTC: <span style='color:#4CAF50;'>$92,450 (+3.2%)</span><br>📉 ETH: <span style='color:#ffc107;'>$3,120 (+1.5%)</span></div>"
-
-        site_dirs["ai-prompter"]="ai-prompter"
-        site_titles["ai-prompter"]="🤖 Smart AI Instant Prompt Generator"
-        site_contents["ai-prompter"]="<textarea placeholder='Describe what you want to generate...' style='width:80%; height:100px; padding:10px; border-radius:5px;'></textarea><br><button style='background:#2196F3; color:white; padding:10px 20px; border:none; border-radius:5px; margin-top:10px;'>Generate AI Prompt</button>"
-
-        site_dirs["shayari-hub"]="shayari-hub"
-        site_titles["shayari-hub"]="🔥 Daily Viral Love & Attitude Shayari Network"
-        site_contents["shayari-hub"]="<div style='font-style:italic; font-size:20px; padding:30px; background:#2d002d; border-radius:10px; max-width:600px; margin:20px auto;'>\"Kamayee aisi karo ki ad networks bhi bole, sahib thoda ruko, galla bhar gaya hai!\"</div>"
-
-        site_dirs["bmi-calculator"]="bmi-calculator"
-        site_titles["bmi-calculator"]="🏃 Advanced Health & BMI Fitness Engine"
-        site_contents["bmi-calculator"]="<div style='padding:20px; background:#222; max-width:400px; margin:20px auto; border-radius:10px;'>Weight (kg): <input type='number' style='width:50px;'><br><br>Height (cm): <input type='number' style='width:50px;'><br><br><button style='background:#009688; color:white; border:none; padding:8px 15px; border-radius:5px;'>Calculate BMI</button></div>"
-
-        site_dirs["click-speed"]="click-speed"
-        site_titles["click-speed"]="⚡ Ultra CPS Click Speed Tester Game"
-        site_contents["click-speed"]="<button onclick='alert(\"Click Registered!\")' style='width:200px; height:200px; border-radius:50%; background:#e91e63; color:white; font-size:24px; font-weight:bold; border:none; cursor:pointer;'>TAP TO TEST CPS</button>"
-
-        site_dirs["word-counter"]="word-counter"
-        site_titles["word-counter"]="📝 Professional Smart Text Word Counter"
-        site_contents["word-counter"]="<textarea placeholder='Type or paste your content here...' style='width:80%; height:80px;'></textarea><br><p>Words: 0 | Characters: 0</p>"
-
-        site_dirs["age-calculator"]="age-calculator"
-        site_titles["age-calculator"]="📅 Exact Date of Birth & Age Finder Tool"
-        site_contents["age-calculator"]="<div style='padding:20px;'>Select DOB: <input type='date'><br><br><button style='background:#ff5722; color:white; border:none; padding:8px 15px; border-radius:5px;'>Calculate Exact Age</button></div>"
-
-        site_dirs["qr-generator"]="qr-generator"
-        site_titles["qr-generator"]="📷 Instant URL to Custom QR Code Generator"
-        site_contents["qr-generator"]="<input type='text' placeholder='Enter website link...' style='width:60%; padding:8px;'><button style='background:#4caf50; color:white; padding:8px 15px; border:none; margin-left:5px;'>Generate QR</button>"
-
-        site_dirs["expense-tracker"]="expense-tracker"
-        site_titles["expense-tracker"]="💳 Daily Micro Budget & Expense Cloud Manager"
-        site_contents["expense-tracker"]="<div style='padding:15px; background:#252525; max-width:400px; margin:20px auto; border-radius:8px;'>Item: <input type='text' style='width:100px;'> Amount: <input type='number' style='width:60px;'><button style='margin-left:5px;'>Add</button></div>"
-
-        site_dirs["todo-cloud"]="todo-cloud"
-        site_titles["todo-cloud"]="📋 Dynamic Productivity Tasks Checklist App"
-        site_contents["todo-cloud"]="<div style='padding:15px;'><input type='text' placeholder='Add new task...'><button style='background:#673ab7; color:white; border:none; padding:5px 10px;'>Add Task</button></div>"
-
-        site_dirs["weather-app"]="weather-app"
-        site_titles["weather-app"]="🌦️ Global Live Climate & Weather Reporter"
-        site_contents["weather-app"]="<div style='padding:20px; font-size:18px;'>📍 Location Detected: <span style='color:#2196f3;'>Delhi, IN</span><br>🌡️ Current Temp: <span style='color:#ff9800;'>34°C</span></div>"
-
-        site_dirs["random-quotes"]="random-quotes"
-        site_titles["random-quotes"]="💡 Millionaire Mindset Daily Motivational Quotes"
-        site_contents["random-quotes"]="<div style='padding:25px; border-left:4px solid #00ffcc; background:#1a1a1a; max-width:500px; margin:20px auto;'>\"Success isn't given, it's earned. Keep building your web network!\"</div>"
-
-        # MASTER HUB GENERATION
-        echo "<!DOCTYPE html><html><head><title>🚀 10 Crore Autonomous Web Factory Hub</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body style='font-family:sans-serif; text-align:center; background:#0b0b11; color:white; padding:20px;'><h1 style='color:#FF5722; font-size:2.2em;'>🚀 10 Crore Autonomous Multi-Site Factory Hub</h1><p style='color:#8c8c9e;'>Unity Ads Embedded | Yandex, Adsterra & AppLovin Smart Pipelines Initialized</p>" > public/index.html
-        inject_quad_ads "Master_Hub" >> public/index.html
+        # WRITING MAIN STOREFRONT INDEX
+        echo "<!DOCTYPE html><html><head><title>🚀 Autonomous High-Traffic Search Factory</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body style='font-family:sans-serif; text-align:center; background:#0b0b11; color:white; padding:20px;'><h1 style='color:#FF5722; font-size:2.2em;'>🚀 10 Crore Unlimited Search-Target App Factory</h1><p style='color:#8c8c9e;'>Unity Ads Enabled | Automated 30 High-Volume Search Network Active</p>" > public/index.html
+        inject_triple_ads "Master_Hub" >> public/index.html
         echo "<div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:35px auto;'>" >> public/index.html
         
-        # Deploying 15 separate micro websites in a clean loop
-        for key in "${!site_dirs[@]}"; do
-          dir="${site_dirs[$key]}"
-          title="${site_titles[$key]}"
-          html_app="${site_contents[$key]}"
+        # Deploying all 30 high-traffic websites in an automated loop
+        for i in {1..30}; do
+          dir="${dirs[$i]}"
+          title="${titles[$i]}"
+          desc="${concepts[$i]}"
           
-          # Writing internal secure page code
+          # Writing sub-site code
           echo "<!DOCTYPE html><html><head><title>$title</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body style='font-family:sans-serif; text-align:center; background:#111; color:white; padding:20px;'>" > "public/$dir/index.html"
-          inject_quad_ads "$dir" >> "public/$dir/index.html"
+          inject_triple_ads "$dir" >> "public/$dir/index.html"
           echo "<h2 style='color:#00ffcc; margin-top:20px;'>$title</h2>" >> "public/$dir/index.html"
-          echo "<div style='margin:30px auto; min-height:200px;'>$html_app</div>" >> "public/$dir/index.html"
-          inject_bottom_ad_triggers >> "public/$dir/index.html"
+          echo "<div style='background:#222; max-width:500px; margin:30px auto; padding:25px; border-radius:10px; border:1px solid #333;'><p style='color:#e0e0e0; font-size:15px;'>$desc</p><br><input type='text' placeholder='Enter Action Input Here...' style='width:80%; padding:10px; border-radius:5px; border:none;'><br><br><button onclick='alert(\"Processing Dynamic Request...\")' style='background:#4CAF50; color:white; padding:10px 20px; font-weight:bold; border:none; border-radius:5px; cursor:pointer; width:85%;'>Execute Task</button></div>" >> "public/$dir/index.html"
+          inject_bottom_triggers >> "public/$dir/index.html"
           echo "</body></html>" >> "public/$dir/index.html"
           
-          # Injecting landing links into the main dashboard page
-          echo "<div style='background:#161625; padding:20px; border-radius:12px; border:2px solid #2d2d44; text-align:left;'><h3 style='margin:0 0 8px 0; color:#00ffcc; font-size:16px;'>$title</h3><p style='font-size:12px; color:#a0a0b0; margin-bottom:15px;'>100% Secure standalone responsive web tool application.</p><a href='./$dir/' style='background:#4CAF50; color:white; padding:10px 15px; text-decoration:none; font-weight:bold; border-radius:6px; display:inline-block; width:88%; text-align:center; font-size:13px;'>🌐 Launch App Website</a></div>" >> public/index.html
+          # Linking sub-site card inside central hub storefront
+          echo "<div style='background:#161625; padding:20px; border-radius:12px; border:2px solid #2d2d44; text-align:left;'><h3 style='margin:0 0 8px 0; color:#00ffcc; font-size:15px;'>$title</h3><p style='font-size:12px; color:#a0a0b0; margin-bottom:15px;'>Responsive automated service utility web application node.</p><a href='./$dir/' style='background:#4CAF50; color:white; padding:10px 15px; text-decoration:none; font-weight:bold; border-radius:6px; display:inline-block; width:88%; text-align:center; font-size:12px;'>🌐 Launch High-Traffic App</a></div>" >> public/index.html
         done
 
         echo "</div>" >> public/index.html
-        inject_bottom_ad_triggers >> public/index.html
+        inject_bottom_triggers >> public/index.html
         echo "</body></html>" >> public/index.html
-        echo "==== All 15 Independent Mobile-Responsive App Websites Built Successfully ===="
 
-    # 3. Deploy Ecosystem directly to GitHub Pages
+    # 3. Deploy Ecosystem directly to GitHub Pages Server Nodes
     - name: 🚀 Broadcast and Publish Framework Live
       uses: peaceiris/actions-gh-pages@v3
       with:
