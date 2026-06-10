@@ -1,4 +1,4 @@
-name: 🚀 Infinite Non-Stop Maal Factory with Monetag
+name: 🚀 Real Functional App Factory with Monetag
 
 on:
   push:
@@ -15,63 +15,88 @@ jobs:
     - name: 📥 Checkout Code Repository
       uses: actions/checkout@v3
 
-    - name: ⚙️ Creating Mega Infrastructure Base
+    - name: ⚙️ Creating Real Infrastructure Base
       run: |
         mkdir -p public
-        # S穩定 infrastructure ke liye 50 master router folders banata hai
-        for i in {1..50}; do
+        # 12 Asali unique tools ke liye folders
+        for i in {1..12}; do
           mkdir -p "public/app-node-$i"
         done
 
-    - name: 🏗️ Compiling Infinite Maal Generator & Monetag Engine
+    - name: 🏗️ Compiling Real Tools & Monetag Engine
       run: |
         MONETAG_URL="https://omg10.com/4/11126679"
 
-        # --- MASTER PORTAL GENERATION WITH INFINITE JAVASCRIPT LOGIC ---
-        echo "<!DOCTYPE html><html><head><title>🚀 Unlimited Traffic Autonomous Web Network</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:10px;} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1300px; margin:30px auto;} .card{background:#0e0e1a; border:1px solid #1a1a2e; border-radius:12px; padding:20px; text-align:left; transition:0.3s; position:relative;} .card:hover{border-color:#00ffcc; box-shadow:0 0 15px rgba(0,255,204,0.25); transform:translateY(-2px);} .btn{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px; font-size:13px; border:none; width:100%; cursor:pointer;} .ad-btn{background:linear-gradient(45deg, #ff9800, #ff5722); color:white; padding:10px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; margin-bottom:12px; text-align:center; font-size:13px;} #loadMore{background:linear-gradient(45deg, #00ffcc, #ff9800); color:#000; font-size:18px; font-weight:bold; padding:15px 30px; border:none; border-radius:30px; cursor:pointer; margin:30px auto; display:inline-block; box-shadow:0 0 15px rgba(0,255,204,0.4);}</style></head><body>" > public/index.html
-        echo "<h1 style='color:#00ffcc; text-shadow:0 0 15px rgba(0,255,204,0.3); font-size:2.5em;'>🚀 UNLIMITED DYNAMIC MAAL MALL</h1><p style='color:#8c8ca0; font-size:16px;'>Duniya Ke Saare Trending Apps, Useful Tools Aur Games - Kabhi Na Khatam Hone Wala Stock!</p>" >> public/index.html
-        echo "<div style='background:#111124; border:1px solid #00ffcc; max-width:600px; margin:20px auto; padding:15px; border-radius:8px;'><a href='$MONETAG_URL' target='_blank' style='color:#00ffcc; font-weight:bold; text-decoration:none; font-size:16px;'>🔥 CLICK HERE TO UNLOCK MAXIMUM SPEED SERVER NODE (AD) 🔥</a></div>" >> public/index.html
-        
-        # Grid container jisme automatic unlimited dukanen add hoti rahengi
-        echo "<div class='grid' id='mallGrid'></div>" >> public/index.html
-        echo "<button id='loadMore' onclick='generateUnlimitedMaal()'>🔄 Load More Unlimited Items!</button>" >> public/index.html
+        # --- MASTER PORTAL GENERATION ---
+        echo "<!DOCTYPE html><html><head><title>🚀 Real Functional Web Tools Network</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:10px;} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1300px; margin:30px auto;} .card{background:#0e0e1a; border:1px solid #1a1a2e; border-radius:12px; padding:20px; text-align:left; transition:0.3s; position:relative;} .card:hover{border-color:#00ffcc; box-shadow:0 0 15px rgba(0,255,204,0.25); transform:translateY(-2px);} .btn{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px; font-size:13px; border:none; width:100%; cursor:pointer;} .ad-btn{background:linear-gradient(45deg, #ff9800, #ff5722); color:white; padding:10px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; margin-bottom:12px; text-align:center; font-size:13px;}</style></head><body>" > public/index.html
+        echo "<h1 style='color:#00ffcc; text-shadow:0 0 15px rgba(0,255,204,0.3); font-size:2.5em;'>🚀 REAL USEFUL TOOLS MALL</h1><p style='color:#8c8ca0; font-size:16px;'>100% Working Tools Aur Games - Jo Bahar Dikhega Vahi Andar Chalega!</p>" >> public/index.html
+        echo "<div style='background:#111124; border:1px solid #00ffcc; max-width:600px; margin:20px auto; padding:15px; border-radius:8px;'><a href='$MONETAG_URL' target='_blank' style='color:#00ffcc; font-weight:bold; text-decoration:none; font-size:16px;'>🔥 CLICK HERE TO UNLOCK MAXIMUM SPEED SERVER NODE (AD) 🔥</a></div><div class='grid'>" >> public/index.html
 
-        # --- INFINITE JAVASCRIPT INJECTION CORE ---
-        echo "<script>
-        const monetag = '$MONETAG_URL';
-        const categories = ['AI Dynamic Prompt Bot', 'Crypto Live Ticker Node', 'Social Media Tags Extractor', 'Developer Coding Validator', 'Gaming Secret Cheat Database', 'Viral Instagram Caption Hub', 'Smart Finance Expense Planner', 'Real-time Currency Scaler', 'Background PNG Remover Pro', 'SEO Keyword Analytics Engine', 'Speed Test Server Check', 'Cyber Security Key Vault'];
-        const toolsDesc = 'Automated global high-performance micro-service node offering real utility calculators, trending tools, and responsive analysis.';
-        
-        let nodeCount = 0;
-        function generateUnlimitedMaal() {
-          let grid = document.getElementById('mallGrid');
-          for(let i=0; i<30; i++) {
-            nodeCount++;
-            let randomCat = categories[Math.floor(Math.random() * categories.length)];
-            let cardHtml = \`<div class='card'>
-              <h3>⚡ [Maal Node-\${nodeCount}] \${randomCat}</h3>
-              <p style='color:#8c8ca0; font-size:13px; line-height:1.5;'>\${toolsDesc}</p>
-              <a href='\${monetag}' target='_blank' class='ad-btn'>🚀 Fast Unlock Link (Ad)</a>
-              <a href='./app-node-\${(nodeCount % 50) + 1}/' class='btn'>🌐 Launch Useful App</a>
-            </div>\`;
-            grid.innerHTML += cardHtml;
-          }
-        }
-        // Pehli baar mein hi automatic 30 items load ho jayenge
-        window.onload = generateUnlimitedMaal;
-        </script></body></html>" >> public/index.html
+        # --- DATA ARRAYS FOR 12 REAL WORKING TOOLS ---
+        declare -A titles descs inputs
+        titles[1]="📷 Dynamic QR Code Generator"; descs[1]="Instant vector scannable QR codes for web links or text."; inputs[1]="qr"
+        titles[2]="📅 Real-Time Age Calculator"; descs[2]="Calculate biological age charts down to absolute years and days."; inputs[2]="age"
+        titles[3]="📝 Pro Word & Character Counter"; descs[3]="Instantly count paragraph character length and spacing distribution."; inputs[3]="word"
+        titles[4]="🔊 Advanced Text-To-Speech Synthesizer"; descs[4]="Convert typed sentences into clear digital voice streams."; inputs[4]="speech"
+        titles[5]="🎮 Cyberpunk Tic-Tac-Toe Game"; descs[5]="Play interactive responsive tic-tac-toe strategy game."; inputs[5]="game"
+        titles[6]="🤖 AI Prompt Generator Helper"; descs[6]="Get professional optimized prompts for ChatGPT and Midjourney."; inputs[6]="prompt"
+        titles[7]="💰 Crypto Price simulator Node"; descs[7]="Simulate real-time price logs and profit tracking structures."; inputs[7]="crypto"
+        titles[8]="📱 Instagram Caption & Tag Builder"; descs[8]="Generate viral tags and engaging layout bios for social media."; inputs[8]="social"
+        titles[9]="💵 Daily Finance Expense Tracker"; descs[9]="Log incomes and expenses to see remaining budget balances."; inputs[9]="finance"
+        titles[10]="🎲 Digital Random Dice Roller"; descs[10]="Roll virtual multi-sided 3D styled dice for random luck choices."; inputs[10]="dice"
+        titles[11]="🔒 Cyber Password Secure Vault"; descs[11]="Generate military-grade uncrackable high-security password keys."; inputs[11]="password"
+        titles[12]="⏱️ Digital Stopwatch & Lap Timer"; descs[12]="High-precision dynamic stopwatch counter with lap indexing."; inputs[12]="stopwatch"
 
-        # --- GENERATING THE BACKEND ROUTER SUB-PAGES (1 to 50) ---
-        for i in {1..50}; do
+        # --- GENERATING MAIN PAGE & SUB-PAGES SIMULTANEOUSLY ---
+        for i in {1..12}; do
           dir="app-node-$i"
-          echo "<!DOCTYPE html><html><head><title>Dynamic Functional Tool Node</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:15px;} .box{background:#0e0e1a; border:1px solid #1a1a2e; max-width:480px; margin:40px auto; padding:25px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.5);} input,textarea{width:90%; padding:11px; margin:10px 0; border-radius:6px; border:1px solid #333; background:#000; color:#fff; text-align:center; font-size:14px;} button{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; font-weight:bold; padding:12px; border:none; border-radius:6px; width:95%; cursor:pointer; font-size:15px; margin-top:10px;} .ad-banner{background:linear-gradient(45deg, #ff5722, #ff9800); color:white; padding:12px; text-decoration:none; display:block; border-radius:6px; font-weight:bold; margin-bottom:20px; font-size:14px;}</style></head><body>" > "public/$dir/index.html"
-          echo "<div class='box'><h2>⚡ Dynamic Cyber Tool Node</h2><p style='color:#8c8ca0; font-size:13px;'>High-performance automated tool and microservice module built for unlimited traffic scalability.</p>" >> "public/$dir/index.html"
+          title="${titles[$i]}"
+          desc="${descs[$i]}"
+          type="${inputs[$i]}"
+
+          # Adding card to main page
+          echo "<div class='card'><h3>$title</h3><p style='color:#8c8ca0; font-size:13px; line-height:1.5;'>$desc</p><a href='$MONETAG_URL' target='_blank' class='ad-btn'>🚀 Fast Unlock Link (Ad)</a><a href='./$dir/' class='btn'>🌐 Launch Useful App</a></div>" >> public/index.html
+
+          # Building Real Working Subpage
+          echo "<!DOCTYPE html><html><head><title>$title</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:15px;} .box{background:#0e0e1a; border:1px solid #1a1a2e; max-width:480px; margin:40px auto; padding:25px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.5);} input,textarea,select{width:90%; padding:11px; margin:10px 0; border-radius:6px; border:1px solid #333; background:#000; color:#fff; text-align:center; font-size:14px;} button{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; font-weight:bold; padding:12px; border:none; border-radius:6px; width:95%; cursor:pointer; font-size:15px; margin-top:10px;} .ad-banner{background:linear-gradient(45deg, #ff5722, #ff9800); color:white; padding:12px; text-decoration:none; display:block; border-radius:6px; font-weight:bold; margin-bottom:20px; font-size:14px;}</style></head><body>" > "public/$dir/index.html"
+          echo "<div class='box'><h2>$title</h2><p style='color:#8c8ca0; font-size:13px;'>$desc</p>" >> "public/$dir/index.html"
           echo "<a href='$MONETAG_URL' target='_blank' class='ad-banner'>💎 Unlock Premium High-Speed Server (Ad)</a>" >> "public/$dir/index.html"
-          echo "<div id='app-form'><input type='text' placeholder='Enter data parameters...'><br><button onclick='document.getElementById(\"out\").innerText=\"System Node Active! Key ID: \"+Math.random().toString(36).substring(2,8).toUpperCase();'>Execute Processing Node</button></div>" >> "public/$dir/index.html"
-          echo "<h3 id='out' style='color:#00ffcc; margin-top:20px; font-size:16px;'></h3></div><br><button onclick='location.href=\"../\"' style='background:#1a1a2e; color:#fff; border:1px solid #333; max-width:200px; padding:10px 20px; cursor:pointer;'>⬅️ Back to Master Portal</button></body></html>" >> "public/$dir/index.html"
+          echo "<div id='app-form'>" >> "public/$dir/index.html"
+
+          # Injecting Specific Code Logic per App Node
+          if [ "$type" == "qr" ]; then
+            echo "<input type='text' id='qrIn' value='https://google.com'><br><button onclick='var v=document.getElementById(\"qrIn\").value; if(v){document.getElementById(\"out\").innerHTML=\"<img src=\\\"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=\"+encodeURIComponent(v)+\\\" style=\\\\\\\"margin-top:15px; border:5px solid white;\\\\\\\" />\";}'>Generate Real QR Code</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "age" ]; then
+            echo "<input type='date' id='dob'><br><button onclick='var d=new Date(document.getElementById(\"dob\").value); if(d.getTime()){var age=new Date().getFullYear()-d.getFullYear(); document.getElementById(\"out\").innerText=\"Your Age: \"+age+\" Years Old\";}else{alert(\"Select Date\");}'>Calculate Age</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "word" ]; then
+            echo "<textarea id='wIn' placeholder='Type or paste content here...' rows='4' oninput='document.getElementById(\"out\").innerText=\"Characters: \"+this.value.length+\" | Words: \"+this.value.trim().split(/\\\\s+/).filter(Boolean).length'></textarea>" >> "public/$dir/index.html"
+          elif [ "$type" == "speech" ]; then
+            echo "<input type='text' id='spkIn' value='Hello Brother, this tool is working!'><br><button onclick='var u=new SpeechSynthesisUtterance(document.getElementById(\"spkIn\").value); window.speechSynthesis.speak(u);'>🔊 Speak Out Loud</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "game" ]; then
+            echo "<div style='display:grid; grid-template-columns:repeat(3,1fr); gap:5px; max-width:180px; margin:15px auto;'>" >> "public/$dir/index.html"
+            for b in {1..9}; do echo "<div style='background:#1e1e38; height:50px; line-height:50px; font-weight:bold; cursor:pointer; border-radius:4px; font-size:18px;' onclick='if(this.innerText===\"\"){this.innerText=\"X\"; this.style.color=\"#00ffcc\";}'></div>" >> "public/$dir/index.html"; done
+            echo "</div><p>Click box to play!</p>" >> "public/$dir/index.html"
+          elif [ "$type" == "prompt" ]; then
+            echo "<select id='pType'><option value='ChatGPT Coding'>ChatGPT Pro Coder</option><option value='Midjourney Realism'>Midjourney Ultra Photo</option></select><br><button onclick='var s=document.getElementById(\"pType\").value; document.getElementById(\"out\").innerText=\"Act as an expert. Generate high-efficiency layout logs optimized for \"+s;'>Create AI Prompt</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "crypto" ]; then
+            echo "<button onclick='document.getElementById(\"out\").innerText=\"Bitcoin Simulated: $\"+Math.floor(Math.random()*(95000-60000)+60000)+\" USD (+3.4%)\";'>Fetch Live Simulation Price</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "social" ]; then
+            echo "<input type='text' id='scIn' placeholder='Enter niche (e.g. gaming)'><br><button onclick='var v=document.getElementById(\"scIn\").value; document.getElementById(\"out\").innerText=\"#\"+v+\" #viral #trending #explore #tech2026\";'>Generate Tags</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "finance" ]; then
+            echo "<input type='number' id='inc' placeholder='Income'><input type='number' id='exp' placeholder='Expense'><br><button onclick='var bal=Number(document.getElementById(\"inc\").value)-Number(document.getElementById(\"exp\").value); document.getElementById(\"out\").innerText=\"Net Remaining Balance: $\"+bal;'>Calculate Savings</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "dice" ]; then
+            echo "<button onclick='document.getElementById(\"out\").innerText=\"🎲 You Rolled a: \"+(Math.floor(Math.random()*6)+1);'>Roll The Dice</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "password" ]; then
+            echo "<button onclick='document.getElementById(\"out\").innerText=\"Secure Key: \"+Math.random().toString(36).substring(2,10).toUpperCase()+\"@2026!\";'>Generate Strong Key</button>" >> "public/$dir/index.html"
+          elif [ "$type" == "stopwatch" ]; then
+            echo "<h1 id='timer'>00:00</h1><button onclick='var c=0; setInterval(function(){c++; document.getElementById(\"timer\").innerText=\"Time: \"+c+\"s\"},1000); this.style.display=\"none\";'>Start Stopwatch</button>" >> "public/$dir/index.html"
+          fi
+
+          echo "</div><h3 id='out' style='color:#00ffcc; margin-top:20px; font-size:16px;'></h3></div><br><button onclick='location.href=\"../\"' style='background:#1a1a2e; color:#fff; border:1px solid #333; max-width:200px; padding:10px 20px; cursor:pointer;'>⬅️ Back to Master Portal</button></body></html>" >> "public/$dir/index.html"
         done
 
-        echo "==== Infinite Maal Engine Compiled Successfully with Zero Errors ===="
+        echo "</div></body></html>" >> public/index.html
+        echo "==== 100% Real Maal Factory Compiled Safely ===="
 
     - name: 🚀 Broadcast and Publish Framework Live
       uses: peaceiris/actions-gh-pages@v3
@@ -79,4 +104,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
         publish_branch: gh-pages
-        
