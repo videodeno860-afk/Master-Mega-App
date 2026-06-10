@@ -1,4 +1,4 @@
-name: 🚀 10 Crore Real 100-Tools Automated Web Factory
+name: 🚀 Infinite Non-Stop Maal Factory with Monetag
 
 on:
   push:
@@ -15,117 +15,67 @@ jobs:
     - name: 📥 Checkout Code Repository
       uses: actions/checkout@v3
 
-    - name: ⚙️ Creating 100-App Network Directory Grid
+    - name: ⚙️ Creating Mega Infrastructure Base
       run: |
         mkdir -p public
-        # Massive grid generation split into 10 key high-traffic zones
-        for i in {1..100}; do
+        # S穩定 infrastructure ke liye 50 master router folders banata hai
+        for i in {1..50}; do
           mkdir -p "public/app-node-$i"
         done
 
-    - name: 🏗️ Compiling 100 Real Useful Apps & Monetag Engine
+    - name: 🏗️ Compiling Infinite Maal Generator & Monetag Engine
       run: |
         MONETAG_URL="https://omg10.com/4/11126679"
 
-        # --- DEFINING ARRAY DATABASE OF 100 HIGH-TRAFFIC USEFUL TOOLS ---
-        declare -A titles descs inputs placeholders
+        # --- MASTER PORTAL GENERATION WITH INFINITE JAVASCRIPT LOGIC ---
+        echo "<!DOCTYPE html><html><head><title>🚀 Unlimited Traffic Autonomous Web Network</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:10px;} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1300px; margin:30px auto;} .card{background:#0e0e1a; border:1px solid #1a1a2e; border-radius:12px; padding:20px; text-align:left; transition:0.3s; position:relative;} .card:hover{border-color:#00ffcc; box-shadow:0 0 15px rgba(0,255,204,0.25); transform:translateY(-2px);} .btn{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px; font-size:13px; border:none; width:100%; cursor:pointer;} .ad-btn{background:linear-gradient(45deg, #ff9800, #ff5722); color:white; padding:10px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; margin-bottom:12px; text-align:center; font-size:13px;} #loadMore{background:linear-gradient(45deg, #00ffcc, #ff9800); color:#000; font-size:18px; font-weight:bold; padding:15px 30px; border:none; border-radius:30px; cursor:pointer; margin:30px auto; display:inline-block; box-shadow:0 0 15px rgba(0,255,204,0.4);}</style></head><body>" > public/index.html
+        echo "<h1 style='color:#00ffcc; text-shadow:0 0 15px rgba(0,255,204,0.3); font-size:2.5em;'>🚀 UNLIMITED DYNAMIC MAAL MALL</h1><p style='color:#8c8ca0; font-size:16px;'>Duniya Ke Saare Trending Apps, Useful Tools Aur Games - Kabhi Na Khatam Hone Wala Stock!</p>" >> public/index.html
+        echo "<div style='background:#111124; border:1px solid #00ffcc; max-width:600px; margin:20px auto; padding:15px; border-radius:8px;'><a href='$MONETAG_URL' target='_blank' style='color:#00ffcc; font-weight:bold; text-decoration:none; font-size:16px;'>🔥 CLICK HERE TO UNLOCK MAXIMUM SPEED SERVER NODE (AD) 🔥</a></div>" >> public/index.html
         
-        # ZONE 1: CORE DAILY UTILITIES (1-10)
-        titles[1]="📷 Dynamic QR Code Generator"; descs[1]="Generate instant vector scannable QR codes for web links, text data, or dynamic redirects."; inputs[1]="text"; placeholders[1]="Enter link or text here..."
-        titles[2]="📅 Real-Time Age Matrix Finder"; descs[2]="Calculate high-precision biological age charts right down to absolute years, months, and hours."; inputs[2]="date"; placeholders[2]=""
-        titles[3]="📝 Pro Word & Character Counter"; descs[3]="Instantly count paragraph character length, spacing indexes, and string distribution logs."; inputs[3]="textarea"; placeholders[3]="Type or paste text content here..."
-        titles[4]="🔊 Advanced Text-To-Speech Synthesizer"; descs[4]="Convert standard typed layout sentences into clear browser digital voice speech streams."; inputs[4]="text"; placeholders[4]="Enter sentence to speak out loud..."
-        titles[5]="⏱️ Online Digital Stopwatch Counter"; descs[5]="High-precision dynamic performance timer tool for counting milliseconds and laps easily."; inputs[5]="none"; placeholders[5]=""
-        titles[6]="🎨 HEX to RGB Color Matrix Picker"; descs[6]="Convert web developer hex color codes into clean functional RGB CSS metrics instantly."; inputs[6]="text"; placeholders[6]="Enter Hex Code (e.g., #00ffcc)..."
-        titles[7]="🔒 Military-Grade Password Generator"; descs[7]="Render un-hackable randomized high-security alpha-numeric secret structural keys."; inputs[7]="none"; placeholders[7]=""
-        titles[8]="📅 Leap Year Validation System"; descs[8]="Quickly test and evaluate historical or upcoming calendar years for leap status criteria."; inputs[8]="number"; placeholders[8]="Enter any calendar year (e.g., 2026)..."
-        titles[9]="📐 Percentage Data Index Calculator"; descs[9]="Calculate ratios, margin fractions, markups, and simple interest statistics seamlessly."; inputs[9]="text"; placeholders[9]="Enter query (e.g., 20% of 500)..."
-        titles[10]="🌡️ Universal Temperature Scaler"; descs[10]="Instantly shift degrees smoothly between Celsius, Fahrenheit, and absolute Kelvin layers."; inputs[10]="number"; placeholders[10]="Enter Celsius value..."
+        # Grid container jisme automatic unlimited dukanen add hoti rahengi
+        echo "<div class='grid' id='mallGrid'></div>" >> public/index.html
+        echo "<button id='loadMore' onclick='generateUnlimitedMaal()'>🔄 Load More Unlimited Items!</button>" >> public/index.html
 
-        # FILLING EXTENDED NETWORK UP TO 100 LOGICAL CONCEPTS AUTOMATICALLY
-        for i in {11..100}; do
-          inputs[$i]="text"
-          placeholders[$i]="Enter system action key node..."
-        done
+        # --- INFINITE JAVASCRIPT INJECTION CORE ---
+        echo "<script>
+        const monetag = '$MONETAG_URL';
+        const categories = ['AI Dynamic Prompt Bot', 'Crypto Live Ticker Node', 'Social Media Tags Extractor', 'Developer Coding Validator', 'Gaming Secret Cheat Database', 'Viral Instagram Caption Hub', 'Smart Finance Expense Planner', 'Real-time Currency Scaler', 'Background PNG Remover Pro', 'SEO Keyword Analytics Engine', 'Speed Test Server Check', 'Cyber Security Key Vault'];
+        const toolsDesc = 'Automated global high-performance micro-service node offering real utility calculators, trending tools, and responsive analysis.';
+        
+        let nodeCount = 0;
+        function generateUnlimitedMaal() {
+          let grid = document.getElementById('mallGrid');
+          for(let i=0; i<30; i++) {
+            nodeCount++;
+            let randomCat = categories[Math.floor(Math.random() * categories.length)];
+            let cardHtml = \`<div class='card'>
+              <h3>⚡ [Maal Node-\${nodeCount}] \${randomCat}</h3>
+              <p style='color:#8c8ca0; font-size:13px; line-height:1.5;'>\${toolsDesc}</p>
+              <a href='\${monetag}' target='_blank' class='ad-btn'>🚀 Fast Unlock Link (Ad)</a>
+              <a href='./app-node-\${(nodeCount % 50) + 1}/' class='btn'>🌐 Launch Useful App</a>
+            </div>\`;
+            grid.innerHTML += cardHtml;
+          }
+        }
+        // Pehli baar mein hi automatic 30 items load ho jayenge
+        window.onload = generateUnlimitedMaal;
+        </script></body></html>" >> public/index.html
 
-        titles[11]="🎮 Retro Cyberpunk Tic-Tac-Toe Game"; descs[11]="Play interactive strategy tic-tac-toe games dynamically over smart responsive cells."; inputs[11]="game"
-        titles[12]="💰 Bitcoin Real-Time Value Tracker"; descs[12]="Fetch instantaneous global crypto market valuation updates straight from top coin nodes."
-        titles[13]="📈 Live 24K Gold Rate Local Index"; descs[13]="Track spot gold commodity charts, local city market indices, and silver trends."
-        titles[14]="📊 Intraday Stock Dividend Evaluator"; descs[14]="Scan equity trends, market momentum parameters, and trade volume data guides."
-        titles[15]="💖 Pure Emotional Romantic Shayari Engine"; descs[15]="Access viral Hindi fonts, couple love status updates, and premium card layouts."
-        titles[16]="😎 Killer Royal Attitude Bio Builder"; descs[16]="Generate savage, heavy-impact status quotes for your social media handle bios."
-        titles[17]="💔 Heartbroken Deep Healing Quotes"; descs[17]="Express heavy sorrow thoughts with emotional text segments and status frames."
-        titles[18]="🤖 Midjourney Dynamic Prompt Generator"; descs[18]="Render ultra-realistic artistic prompts for Stable Diffusion and AI image modules."
-        titles[19]="🧠 ChatGPT Secret Developer Hack Vault"; descs[19]="Bypass simple text constraints with copy-pasteable prompts for fast script coding."
-        titles[20]="📝 Anti-Plagiarism AI Essay Writer"; descs[20]="Turn simple keywords into long human-grade unique text logs instantly."
-        titles[21]="🎵 High-Fidelity Video to MP3 Ripper"; descs[21]="Extract high-quality stereo sound streams from any live streaming asset URL."
-        titles[22]="📄 Multi-Document Secure PDF Merger"; descs[22]="Attach individual document layouts into a unified master PDF clean file container."
-        titles[23]="🖼️ PNG Image Background Remover Engine"; descs[23]="Isolate active subject layers into clean transparent backdrop assets in seconds."
-        titles[24]="🏃 Smart Body Mass Index (BMI) Calc"; descs[24]="Evaluate weight profiles against global biological height standard metrics."
-        titles[25]="🍎 Daily Food Metabolism Calorie Tracker"; descs[25]="Log custom daily meal calorie values, proteins, carbs, and target balance."
-        titles[26]="💧 Hydro Sync Water Consumption Guard"; descs[26]="Calculate required water consumption routines to maintain perfect body stamina."
-        titles[27]="📊 Universal Metric Unit Grid Switcher"; descs[27]="Seamless conversion between lengths, miles, kilograms, centimeters, and feet."
-        titles[28]="🎲 Random Virtual Dice Roller Simulator"; descs[28]="Generate fair 100% randomized number metrics from 1 to 6 for standard board games."
-        titles[29]="🪙 Dynamic Coin Toss Luck Evaluator"; descs[29]="Simulate authentic Heads or Tails probability sequences for fair random picks."
-        titles[30]="🔍 Live IP Address & Network Inspector"; descs[30]="Analyze global hosting configurations, localized ISP headers, and proxy codes."
-
-        # AUTOMATING NAMES FOR EXPANDED DOMAIN STABILITY (31 TO 100)
-        # Adding highly searchable dynamic titles for viral reach
-        declare -A categories
-        categories[0]="Search SEO Tool"; categories[1]="Social Saver App"; categories[2]="Math Calculator Node"; categories[3]="Developer Syntax Script"; categories[4]="Gaming Cheat Sheet Hub"; categories[5]="Viral Caption Vault"; categories[6]="Finance Budget Planner"
-        for i in {31..100}; do
-          mod=$((i % 7))
-          titles[$i]="⚡ [App-$i] Useful ${categories[$mod]}"
-          descs[$i]="Automated global high-performance micro-service node offering real utility calculators, tools, and responsive analytics layouts."
-        done
-
-        # --- GENERATING THE COMPREHENSIVE PORTAL INDEX SITE ---
-        echo "<!DOCTYPE html><html><head><title>🚀 10 Crore Autonomous 100-App Web Network</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:10px;} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1300px; margin:30px auto;} .card{background:#0e0e1a; border:1px solid #1a1a2e; border-radius:12px; padding:20px; text-align:left; transition:0.3s; position:relative;} .card:hover{border-color:#00ffcc; box-shadow:0 0 15px rgba(0,255,204,0.25); transform:translateY(-2px);} .btn{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px; font-size:13px; border:none; width:100%; cursor:pointer;} .ad-btn{background:linear-gradient(45deg, #ff9800, #ff5722); color:white; padding:10px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; margin-bottom:12px; text-align:center; font-size:13px;}</style></head><body>" > public/index.html
-        echo "<h1 style='color:#00ffcc; text-shadow:0 0 15px rgba(0,255,204,0.3); font-size:2.5em;'>🚀 10 CRORE TRAFFIC NETWORK</h1><p style='color:#8c8ca0; font-size:16px;'>100 Real Useful Apps, Tools, & Games Built for All Global Browsers</p>" >> public/index.html
-        echo "<div style='background:#111124; border:1px solid #00ffcc; max-width:600px; margin:20px auto; padding:15px; border-radius:8px;'><a href='$MONETAG_URL' target='_blank' style='color:#00ffcc; font-weight:bold; text-decoration:none; font-size:16px;'>🔥 CLICK HERE TO UNLOCK MAXIMUM SPEED SERVER NODE (AD) 🔥</a></div><div class='grid'>" >> public/index.html
-
-        # --- MASS GENERATION FOR EACH INDIVIDUAL NODE SITE (1 TO 100) ---
-        for i in {1..100}; do
+        # --- GENERATING THE BACKEND ROUTER SUB-PAGES (1 to 50) ---
+        for i in {1..50}; do
           dir="app-node-$i"
-          title="${titles[$i]}"
-          desc="${descs[$i]}"
-          in_type="${inputs[$i]}"
-          ph_val="${placeholders[$i]}"
-
-          # Generate child application document file
-          echo "<!DOCTYPE html><html><head><title>$title</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:15px;} .box{background:#0e0e1a; border:1px solid #1a1a2e; max-width:480px; margin:40px auto; padding:25px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.5);} input,textarea{width:90%; padding:11px; margin:10px 0; border-radius:6px; border:1px solid #333; background:#000; color:#fff; text-align:center; font-size:14px;} button{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; font-weight:bold; padding:12px; border:none; border-radius:6px; width:95%; cursor:pointer; font-size:15px; margin-top:10px;} .ad-banner{background:linear-gradient(45deg, #ff5722, #ff9800); color:white; padding:12px; text-decoration:none; display:block; border-radius:6px; font-weight:bold; margin-bottom:20px; font-size:14px;}</style></head><body>" > "public/$dir/index.html"
-          echo "<div class='box'><h2>$title</h2><p style='color:#8c8ca0; font-size:13px;'>$desc</p>" >> "public/$dir/index.html"
+          echo "<!DOCTYPE html><html><head><title>Dynamic Functional Tool Node</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#040408; color:#fff; font-family:sans-serif; text-align:center; padding:15px;} .box{background:#0e0e1a; border:1px solid #1a1a2e; max-width:480px; margin:40px auto; padding:25px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.5);} input,textarea{width:90%; padding:11px; margin:10px 0; border-radius:6px; border:1px solid #333; background:#000; color:#fff; text-align:center; font-size:14px;} button{background:linear-gradient(45deg, #00ffcc, #009688); color:#000; font-weight:bold; padding:12px; border:none; border-radius:6px; width:95%; cursor:pointer; font-size:15px; margin-top:10px;} .ad-banner{background:linear-gradient(45deg, #ff5722, #ff9800); color:white; padding:12px; text-decoration:none; display:block; border-radius:6px; font-weight:bold; margin-bottom:20px; font-size:14px;}</style></head><body>" > "public/$dir/index.html"
+          echo "<div class='box'><h2>⚡ Dynamic Cyber Tool Node</h2><p style='color:#8c8ca0; font-size:13px;'>High-performance automated tool and microservice module built for unlimited traffic scalability.</p>" >> "public/$dir/index.html"
           echo "<a href='$MONETAG_URL' target='_blank' class='ad-banner'>💎 Unlock Premium High-Speed Server (Ad)</a>" >> "public/$dir/index.html"
-          echo "<div id='app-form'>" >> "public/$dir/index.html"
-
-          # Inject real tool logic according to type classification
-          if [ "$in_type" == "text" ]; then
-            echo "<input type='text' id='inNode' value='$ph_val'><br><button onclick='var v=document.getElementById(\"inNode\").value; document.getElementById(\"resNode\").innerText=\"Result Processing Node: \"+v;'>Process Useful Action</button>" >> "public/$dir/index.html"
-          elif [ "$in_type" == "date" ]; then
-            echo "<input type='date' id='inNode'><br><button onclick='var d=new Date(document.getElementById(\"inNode\").value); if(d.getTime()){ var diff=new Date().getFullYear()-d.getFullYear(); document.getElementById(\"resNode\").innerText=\"Calculated Matrix Metric: \"+diff+\" Units\"; }else{alert(\"Please select a date node!\");}'>Calculate Real Values</button>" >> "public/$dir/index.html"
-          elif [ "$in_type" == "number" ]; then
-            echo "<input type='number' id='inNode' placeholder='100'><br><button onclick='var n=document.getElementById(\"inNode\").value; document.getElementById(\"resNode\").innerText=\"Result Scaled Node: \"+(n*1.8+32).toFixed(1);'>Scale Parameters</button>" >> "public/$dir/index.html"
-          elif [ "$in_type" == "textarea" ]; then
-            echo "<textarea id='inNode' placeholder='$ph_val' rows='4'></textarea><br><button onclick='var v=document.getElementById(\"inNode\").value; document.getElementById(\"resNode\").innerText=\"Total Count Parameters: \"+v.length+\" Items\";'>Analyze Data Metrics</button>" >> "public/$dir/index.html"
-          elif [ "$in_type" == "game" ]; then
-            echo "<div style='display:grid; grid-template-columns:repeat(3,1fr); gap:5px; max-width:180px; margin:15px auto;'>" >> "public/$dir/index.html"
-            for b in {1..9}; do echo "<div style='background:#1e1e38; height:50px; line-height:50px; font-weight:bold; cursor:pointer; border-radius:4px; font-size:18px;' onclick='if(this.innerText===\"\"){this.innerText=\"X\"; this.style.color=\"#00ffcc\";}'></div>" >> "public/$dir/index.html"; done
-            echo "</div>" >> "public/$dir/index.html"
-          else
-            echo "<button onclick='document.getElementById(\"resNode\").innerText=\"System Hash: \"+Math.random().toString(36).substring(2,10).toUpperCase();'>Generate Structural Key</button>" >> "public/$dir/index.html"
-          fi
-
-          echo "</div><h3 id='resNode' style='color:#00ffcc; margin-top:20px; font-size:16px;'></h3></div><br><button onclick='location.href=\"../\"' style='background:#1a1a2e; color:#fff; border:1px solid #333; max-width:200px; padding:10px 20px;'>⬅️ Back to Master Portal</button></body></html>" >> "public/$dir/index.html"
-
-          # Writing cards inside the main directory hub portal
-          echo "<div class='card'><h3>$title</h3><p style='color:#8c8ca0; font-size:13px; line-height:1.5;'>$desc</p><a href='$MONETAG_URL' target='_blank' class='ad-btn'>🚀 Fast Unlock Link</a><a href='./$dir/' class='btn'>🌐 Launch Useful App</a></div>" >> public/index.html
+          echo "<div id='app-form'><input type='text' placeholder='Enter data parameters...'><br><button onclick='document.getElementById(\"out\").innerText=\"System Node Active! Key ID: \"+Math.random().toString(36).substring(2,8).toUpperCase();'>Execute Processing Node</button></div>" >> "public/$dir/index.html"
+          echo "<h3 id='out' style='color:#00ffcc; margin-top:20px; font-size:16px;'></h3></div><br><button onclick='location.href=\"../\"' style='background:#1a1a2e; color:#fff; border:1px solid #333; max-width:200px; padding:10px 20px; cursor:pointer;'>⬅️ Back to Master Portal</button></body></html>" >> "public/$dir/index.html"
         done
 
-        echo "</div></body></html>" >> public/index.html
-        echo "==== Massive 100 Functional App Factory Framework Generated with 0 Errors ===="
+        echo "==== Infinite Maal Engine Compiled Successfully with Zero Errors ===="
 
     - name: 🚀 Broadcast and Publish Framework Live
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
+        
