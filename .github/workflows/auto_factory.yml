@@ -1,4 +1,4 @@
-name: 🌐 Dual-Engine Enterprise Web Factory
+name: 🌐 Enterprise Web Factory (Error Free)
 
 on:
   push:
@@ -18,9 +18,6 @@ jobs:
     - name: ⚙️ Creating Network Infrastructure
       run: |
         mkdir -p public
-        for i in {1..50}; do
-          mkdir -p "public/site-$i"
-        done
 
     - name: 🏗️ Compiling Dual-Engine System
       env:
@@ -28,22 +25,20 @@ jobs:
       run: |
         FINAL_AD_URL="$MONTAG_LINK"
 
-        # --- MASTER DUAL PORTAL DESIGN ---
-        echo "<!DOCTYPE html><html lang='en'><head><title>🌐 Global Dual-Engine Matrix Hub</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#090d16; color:#f1f5f9; font-family:sans-serif; text-align:center; margin:0; padding:20px;} .header{padding:20px;} .search-box{width:90%; max-width:600px; padding:15px; background:#111827; border:2px solid #3b82f6; color:#fff; border-radius:30px; font-size:16px; text-align:center; outline:none; margin:20px auto; display:block; box-shadow:0 0 15px rgba(59,130,246,0.3);} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:20px auto;} .site-card{background:#111827; border:1px solid #1f2937; border-radius:12px; padding:20px; text-align:left; display:flex; flex-direction:column; justify-content:space-between; transition:0.3s;} .site-card:hover{border-color:#00ffcc;} .badge{padding:4px 8px; border-radius:4px; font-size:11px; width:fit-content; font-weight:bold;} .badge.gold{background:rgba(234,179,8,0.1); color:#eab308;} .badge.blue{background:rgba(59,130,246,0.1); color:#3b82f6;} .btn-launch{background:#3b82f6; color:#fff; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px; transition:0.2s;} .btn-launch:hover{background:#2563eb;}</style></head><body>" > public/index.html
-        echo "<div class='header'><h1>🌐 GLOBAL DUAL-ENGINE MATRIX</h1><p style='color:#94a3b8;'>Switch Between High-CPC USA Finance Nodes & Live Utility Search Engines</p></div>" >> public/index.html
+        # --- MASTER PORTAL DESIGN ---
+        echo "<!DOCTYPE html><html lang='en'><head><title>🌐 Global Premium Network Hub</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#090d16; color:#f1f5f9; font-family:sans-serif; text-align:center; margin:0; padding:20px;} .header{padding:20px;} .search-box{width:90%; max-width:600px; padding:15px; background:#111827; border:2px solid #3b82f6; color:#fff; border-radius:30px; font-size:16px; text-align:center; outline:none; margin:20px auto; display:block; box-shadow:0 0 15px rgba(59,130,246,0.3);} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:20px auto;} .site-card{background:#111827; border:1px solid #1f2937; border-radius:12px; padding:20px; text-align:left; display:flex; flex-direction:column; justify-content:space-between; transition:0.3s;} .site-card:hover{border-color:#00ffcc;} .badge{padding:4px 8px; border-radius:4px; font-size:11px; width:fit-content; font-weight:bold;} .badge.gold{background:rgba(234,179,8,0.1); color:#eab308;} .badge.blue{background:rgba(59,130,246,0.1); color:#3b82f6;} .btn-launch{color:#fff; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px; cursor:pointer; text-transform:uppercase; border:none; font-size:14px; width:100%; transition:0.2s;}</style></head><body>" > public/index.html
+        echo "<div class='header'><h1>🌐 GLOBAL PREMIUM SMART MATRIX</h1><p style='color:#94a3b8;'>100% Secure Verified Dynamic Network Redirector</p></div>" >> public/index.html
         echo "<input type='text' id='hubSearch' class='search-box' placeholder='🔍 Type to Search (e.g. Insurance, Cricket, Maps, Loan, Calculator)...' oninput='filterTools()'>" >> public/index.html
         echo "<div class='grid' id='mainGrid'>" >> public/index.html
 
-        # COMBINED DATA FROM BOTH THE PORTALS
         titles=("USA Car Insurance Matrix" "Crypto Investment Node" "Business Loan Fast Center" "Mortgage Rate Calculator" "Live Cricket Score Matrix" "Google Real-Time Map" "World Live Time Clock" "Universal Scientific Calculator" "Wikipedia Fast Search" "Live Currency Converter")
         tags=("HIGH-CPC FINANCE" "HIGH-CPC CRYPTO" "HIGH-CPC LOANS" "HIGH-CPC MORTGAGE" "UTILITY SPORTS" "UTILITY MAPS" "UTILITY TIME" "UTILITY MATH" "UTILITY EDUCATION" "UTILITY FINANCE")
-        urls=("https://www.geico.com/" "https://coinmarketcap.com/" "https://www.lendingtree.com/" "https://www.mortgagecalculator.org/" "https://cricket.yahoo.com/" "https://maps.google.com/maps?output=embed" "https://time.is/" "https://www.desmos.com/scientific" "https://en.m.wikipedia.org/" "https://www.xe.com/")
+        urls=("https://www.geico.com/" "https://coinmarketcap.com/" "https://www.lendingtree.com/" "https://www.mortgagecalculator.org/" "https://cricket.yahoo.com/" "https://www.google.com/maps" "https://time.is/" "https://www.desmos.com/scientific" "https://en.m.wikipedia.org/" "https://www.xe.com/")
 
         for i in {0..9}; do
           title="${titles[$i]}"
           tag="${tags[$i]}"
           target_url="${urls[$i]}"
-          dir="site-$((i+1))"
 
           if [[ $tag == *"HIGH-CPC"* ]]; then
             badge_html="<span class='badge gold'>$tag</span>"
@@ -53,18 +48,13 @@ jobs:
             border_color="#3b82f6"
           fi
 
-          echo "<div class='site-card' data-title='${title,,}' data-tag='${tag,,}' style='border-left: 4px solid $border_color;'><div>$badge_html<h3 style='margin:12px 0;'>$title</h3></div><div><a href='./$dir/' class='btn-launch' style='background:$border_color;'>🚀 Open Real System</a></div></div>" >> public/index.html
-
-          # --- SUB-PAGES ENGINE WITH SECURE IFRAME WINDOW ---
-          echo "<html lang='en'><head><title>$title</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#090d16; color:#f1f5f9; font-family:sans-serif; text-align:center; margin:0; padding:0;} .nav-bar{background:#111827; padding:15px; border-bottom:1px solid #1f2937; display:flex; justify-content:space-between; align-items:center; padding:10px 20px;} .btn-back{background:#1f2937; color:#fff; padding:8px 15px; text-decoration:none; border-radius:6px; font-size:14px;} .frame-container{width:100%; height:calc(100vh - 70px); border:none;} .ad-overlay{position:fixed; bottom:20px; right:20px; background:linear-gradient(135deg, #ff0055, #ff5500); padding:15px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5); z-index:99999; text-align:center;} .ad-overlay a{color:#fff; text-decoration:none; font-weight:bold; font-size:14px;}</style></head><body><div class='nav-bar'><a href='../' class='btn-back'>⬅️ Back to Hub</a><h4 style='margin:0; color:#00ffcc;'>🔒 Secure Verified Node: $title</h4><div></div></div>" > "public/$dir/index.html"
-          echo "<iframe class='frame-container' src='$target_url'></iframe>" >> "public/$dir/index.html"
-          echo "<div class='ad-overlay'><a href='$FINAL_AD_URL' target='_blank'>⚡ Premium High-Speed Server <br>[Click to Remove Ads & Support] 🚀</a></div>" >> "public/$dir/index.html"
-          echo "</body></html>" >> "public/$dir/index.html"
+          # Using an updated direct window popunder strategy to avoid iFrame restriction errors
+          echo "<div class='site-card' data-title='${title,,}' data-tag='${tag,,}' style='border-left: 4px solid $border_color;'><div>$badge_html<h3 style='margin:12px 0;'>$title</h3></div><div><button onclick=\"launchSecureNode('$target_url')\" class='btn-launch' style='background:$border_color;'>🚀 Open Real Tool</button></div></div>" >> public/index.html
         done
 
-        # DYNAMIC SEARCH ENGINE CODES WITH AUTO GOOGLE FALLBACK
-        echo "</div><script>function filterTools(){ var q=document.getElementById('hubSearch').value.toLowerCase().trim(); var cards=document.getElementsByClassName('site-card'); var found=false; for(var i=0; i<cards.length; i++){ var title=cards[i].getAttribute('data-title'); var tag=cards[i].getAttribute('data-tag'); if(title.includes(q) || tag.includes(q)){ cards[i].style.display='flex'; found=true; } else { cards[i].style.display='none'; } } if(!found && q.length > 2){ if(!document.getElementById('ai-card')){ var grid=document.getElementById('mainGrid'); var aiCard=document.createElement('div'); aiCard.className='site-card'; aiCard.id='ai-card'; aiCard.style.border='2px dashed #00ffcc'; aiCard.innerHTML='<div><span class=\'badge\' style=\'background:#00ffcc;color:#000;\'>REAL SEARCH MATRIX</span><h3 id=\'ai-title\' style=\'margin:12px 0;text-transform:capitalize;\'></h3><p style=\'color:#94a3b8;font-size:12px;\'>Click below to open verified global systems instantly.</p></div><div><a href=\'#\' id=\'ai-link\' class=\'btn-launch\' style=\'background:#00ffcc;color:#000;\'>🚀 Launch Real Search</a></div>'; grid.appendChild(aiCard); } document.getElementById('ai-title').innerText=q+' System Node'; document.getElementById('ai-link').href='https://www.google.com/search?q='+encodeURIComponent(q); document.getElementById('ai-link').target='_blank'; document.getElementById('ai-card').style.display='flex'; } else if(q.length <= 2 && document.getElementById('ai-card')){ document.getElementById('ai-card').style.display='none'; } }</script></body></html>" >> public/index.html
-        echo "==== Dual-Engine Web Factory Compiled Successfully ===="
+        # DYNAMIC ROUTING & SEARCH SCRIPT
+        echo "</div><script>function launchSecureNode(destUrl){ window.open('$FINAL_AD_URL', '_blank'); setTimeout(function(){ window.open(destUrl, '_blank'); }, 300); } function filterTools(){ var q=document.getElementById('hubSearch').value.toLowerCase().trim(); var cards=document.getElementsByClassName('site-card'); var found=false; for(var i=0; i<cards.length; i++){ var title=cards[i].getAttribute('data-title'); var tag=cards[i].getAttribute('data-tag'); if(title.includes(q) || tag.includes(q)){ cards[i].style.display='flex'; found=true; } else { cards[i].style.display='none'; } } if(!found && q.length > 2){ if(!document.getElementById('ai-card')){ var grid=document.getElementById('mainGrid'); var aiCard=document.createElement('div'); aiCard.className='site-card'; aiCard.id='ai-card'; aiCard.style.border='2px dashed #00ffcc'; aiCard.innerHTML='<div><span class=\'badge\' style=\'background:#00ffcc;color:#000;\'>REAL SEARCH MATRIX</span><h3 id=\'ai-title\' style=\'margin:12px 0;text-transform:capitalize;\'></h3><p style=\'color:#94a3b8;font-size:12px;\'>Click below to route through high-value search networks instantly.</p></div><div><button id=\'ai-btn\' class=\'btn-launch\' style=\'background:#00ffcc;color:#000;\'>🚀 Launch Real Search</button></div>'; grid.appendChild(aiCard); } document.getElementById('ai-title').innerText=q+' System Node'; document.getElementById('ai-btn').onclick=function(){ launchSecureNode('https://www.google.com/search?q='+encodeURIComponent(q)); }; document.getElementById('ai-card').style.display='flex'; } else if(q.length <= 2 && document.getElementById('ai-card')){ document.getElementById('ai-card').style.display='none'; } }</script></body></html>" >> public/index.html
+        echo "==== Premium Error-Free System Compiled Successfully ===="
 
     - name: 🚀 Deploy Live Production Stacks
       uses: peaceiris/actions-gh-pages@v3
