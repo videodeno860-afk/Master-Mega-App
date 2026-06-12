@@ -1,4 +1,4 @@
-name: 🌐 Real-Time Live Sports & Dynamic Stacks Factory
+name: 🌐 Dual-Engine Enterprise Web Factory
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  build-and-deploy-real-sports:
+  build-and-deploy-real-network:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,64 +18,53 @@ jobs:
     - name: ⚙️ Creating Network Infrastructure
       run: |
         mkdir -p public
-        for i in {1..105}; do
+        for i in {1..50}; do
           mkdir -p "public/site-$i"
         done
 
-    - name: 🏗️ Compiling Live Score & Progressive Engine
+    - name: 🏗️ Compiling Dual-Engine System
       env:
         MONTAG_LINK: "https://omg10.com/4/11126679"
       run: |
         FINAL_AD_URL="$MONTAG_LINK"
 
-        # --- MASTER PORTAL DESIGN ---
-        echo "<!DOCTYPE html><html lang='en'><head><title>🌐 Global Premium Tools & Live Hub</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#060814; color:#f1f5f9; font-family:sans-serif; text-align:center; margin:0; padding:20px;} .header{padding:20px;} .search-box{width:90%; max-width:600px; padding:15px; background:#0f172a; border:2px solid #1e293b; color:#fff; border-radius:30px; font-size:16px; text-align:center; outline:none; margin:20px auto; display:block;} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1400px; margin:20px auto;} .site-card{background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:20px; text-align:left; display:flex; flex-direction:column; justify-content:space-between;} .badge{background:rgba(59,130,246,0.2); color:#3b82f6; padding:4px 8px; border-radius:4px; font-size:11px; width:fit-content;} .btn-launch{background:#00ffcc; color:#060814; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px;}</style></head><body>" > public/index.html
-        echo "<div class='header'><h1>🌐 GLOBAL GADGET NETWORK</h1><p style='color:#94a3b8;'>Live Scoreboards & Infinite AI Dynamic Tools Engine</p></div>" >> public/index.html
-        echo "<input type='text' id='hubSearch' class='search-box' placeholder='🔍 Search ANY tool or match (e.g., Cricket, Football, Age, PDF)...' oninput='filterTools()'>" >> public/index.html
+        # --- MASTER DUAL PORTAL DESIGN ---
+        echo "<!DOCTYPE html><html lang='en'><head><title>🌐 Global Dual-Engine Matrix Hub</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#090d16; color:#f1f5f9; font-family:sans-serif; text-align:center; margin:0; padding:20px;} .header{padding:20px;} .search-box{width:90%; max-width:600px; padding:15px; background:#111827; border:2px solid #3b82f6; color:#fff; border-radius:30px; font-size:16px; text-align:center; outline:none; margin:20px auto; display:block; box-shadow:0 0 15px rgba(59,130,246,0.3);} .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:20px auto;} .site-card{background:#111827; border:1px solid #1f2937; border-radius:12px; padding:20px; text-align:left; display:flex; flex-direction:column; justify-content:space-between; transition:0.3s;} .site-card:hover{border-color:#00ffcc;} .badge{padding:4px 8px; border-radius:4px; font-size:11px; width:fit-content; font-weight:bold;} .badge.gold{background:rgba(234,179,8,0.1); color:#eab308;} .badge.blue{background:rgba(59,130,246,0.1); color:#3b82f6;} .btn-launch{background:#3b82f6; color:#fff; padding:12px; text-decoration:none; font-weight:bold; border-radius:6px; display:block; text-align:center; margin-top:15px; transition:0.2s;} .btn-launch:hover{background:#2563eb;}</style></head><body>" > public/index.html
+        echo "<div class='header'><h1>🌐 GLOBAL DUAL-ENGINE MATRIX</h1><p style='color:#94a3b8;'>Switch Between High-CPC USA Finance Nodes & Live Utility Search Engines</p></div>" >> public/index.html
+        echo "<input type='text' id='hubSearch' class='search-box' placeholder='🔍 Type to Search (e.g. Insurance, Cricket, Maps, Loan, Calculator)...' oninput='filterTools()'>" >> public/index.html
         echo "<div class='grid' id='mainGrid'>" >> public/index.html
 
-        titles=("Universal QR Maker" "Text Metrics Counter" "Secure Password Builder" "Speech Synthesis Studio" "Exact Age Calculator" "Expense Budget Tracker" "Random Dice Node" "Scientific Stopwatch" "Hex to RGB Converter" "Live Currency Simulator" "Cricket Match Channel 1" "Football Global Stream" "Tennis Championship Live" "Basketball Premium TV" "Motorsports Live Feed" "JSON Data Formatter" "Base64 Stream Decoder" "URL Anchor Purifier" "AI Direct Prompt Builder" "Scientific Root Calculator" "BMI Fitness Analyzer" "Binary Bitstream Encoder" "Regex Expression Tester" "Fahrenheit Thermal Scaler" "Lucky Coin Flipper" "Compound Interest Solver" "Leap Year Evaluator" "HTML Code Escaper" "GST Tax Computator" "UUID Random Token Generator")
-        tags=("MARKETING" "WRITING" "SECURITY" "AUDIO" "UTILITY" "FINANCE" "GAMING" "UTILITY" "DESIGN" "FINANCE" "SPORTS" "SPORTS" "SPORTS" "SPORTS" "SPORTS" "DEVELOPER" "DEVELOPER" "SEO" "AI" "MATH" "HEALTH" "DEVELOPER" "DEVELOPER" "UTILITY" "GAMING" "FINANCE" "UTILITY" "DEVELOPER" "FINANCE" "DEVELOPER")
+        # COMBINED DATA FROM BOTH THE PORTALS
+        titles=("USA Car Insurance Matrix" "Crypto Investment Node" "Business Loan Fast Center" "Mortgage Rate Calculator" "Live Cricket Score Matrix" "Google Real-Time Map" "World Live Time Clock" "Universal Scientific Calculator" "Wikipedia Fast Search" "Live Currency Converter")
+        tags=("HIGH-CPC FINANCE" "HIGH-CPC CRYPTO" "HIGH-CPC LOANS" "HIGH-CPC MORTGAGE" "UTILITY SPORTS" "UTILITY MAPS" "UTILITY TIME" "UTILITY MATH" "UTILITY EDUCATION" "UTILITY FINANCE")
+        urls=("https://www.geico.com/" "https://coinmarketcap.com/" "https://www.lendingtree.com/" "https://www.mortgagecalculator.org/" "https://cricket.yahoo.com/" "https://maps.google.com/maps?output=embed" "https://time.is/" "https://www.desmos.com/scientific" "https://en.m.wikipedia.org/" "https://www.xe.com/")
 
-        for i in {0..29}; do
-          t_idx=$i
-          title="${titles[$t_idx]}"
-          tag="${tags[$t_idx]}"
+        for i in {0..9}; do
+          title="${titles[$i]}"
+          tag="${tags[$i]}"
+          target_url="${urls[$i]}"
           dir="site-$((i+1))"
 
-          echo "<div class='site-card' data-title='${title,,}' data-tag='${tag,,}'><div><span class='badge'>$tag</span><h3 style='margin:12px 0;'>$title</h3></div><div><a href='./$dir/' class='btn-launch'>🚀 Launch Live Tool</a></div></div>" >> public/index.html
-
-          # --- SUB-PAGES ENGINE WITH LIVE SCOREBOARD REALISM ---
-          echo "<html lang='en'><head><title>$title</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#0b0f19; color:#f1f5f9; font-family:sans-serif; text-align:center; padding:20px;} .box{background:#111827; border:1px solid #1f2937; max-width:550px; margin:20px auto; padding:30px; border-radius:12px;} .btn-back{background:rgba(255,255,255,0.05); color:#94a3b8; border:1px solid rgba(255,255,255,0.1); padding:10px 20px; text-decoration:none; border-radius:6px;} .btn-action{background:#3b82f6;color:white;padding:12px;margin-top:15px;width:95%;border:none;border-radius:6px;font-weight:bold;cursor:pointer;} .ad-popup-box{display:none; background:linear-gradient(135deg, #ff0055, #ff5500); padding:15px; border-radius:8px; margin-top:15px; font-weight:bold;} .ad-popup-box a{color:#fff; text-decoration:none; font-size:14px; display:block;} .scoreboard{background:#000; padding:15px; border-radius:8px; border:2px solid #00ffcc; margin:15px 0; text-align:center;}</style></head><body><div class='box'><span>STATION NODE SLOT $((i+1))</span><h2>$title</h2>" > "public/$dir/index.html"
-          
-          if [ "$tag" = "SPORTS" ]; then
-            # REALISTIC CRICKET SCOREBOARD INJECTED
-            echo "<div class='scoreboard'><span style='color:#94a3b8; font-size:12px; font-weight:bold; letter-spacing:1px;'>🔴 LIVE MATCH ANALYSIS</span><h2 style='color:#fff; margin:10px 0;'><span id='liveScore'>142/3</span> (<span id='liveOvers'>16.2</span> Ov)</h2><p style='color:#00ffcc; font-size:13px; margin:0;'>Current Run Rate: <span id='liveCrr'>8.7</span> | Target: 185</p><p style='color:#ef4444; font-size:11px; margin-top:5px; font-weight:bold;'>⚡ Auto-Updating Ball-by-Ball Feed</p></div>" >> "public/$dir/index.html"
-            echo "<button class='btn-action' style='background:#ff0055;' onclick='triggerStep()'>📺 Open Ultra-HD Video Stream Player (Step <span id='clickStep'>1</span>/3)</button>" >> "public/$dir/index.html"
-            
-            # SCRIPT FOR AUTO-CHANGING THE MATCH SCORE TO LOOK 100% REAL
-            echo "<script>setInterval(function(){ var scoreElement=document.getElementById('liveScore'); var oversElement=document.getElementById('liveOvers'); if(scoreElement && oversElement){ var currentScore=scoreElement.innerText.split('/'); var runs=parseInt(currentScore[0])+Math.floor(Math.random()*4); var wickets=parseInt(currentScore[1]); if(Math.random()>0.85 && wickets<10){wickets++;} var currentOvers=parseFloat(oversElement.innerText); var balls=Math.round((currentOvers%1)*10)+1; var overs=Math.floor(currentOvers); if(balls>=6){overs++; balls=0;} scoreElement.innerText=runs+'/'+wickets; oversElement.innerText=overs+'.'+balls; } }, 4000);</script>" >> "public/$dir/index.html"
+          if [[ $tag == *"HIGH-CPC"* ]]; then
+            badge_html="<span class='badge gold'>$tag</span>"
+            border_color="#eab308"
           else
-            echo "<input type='text' id='userInput' placeholder='Enter inputs here...' style='width:90%;padding:10px;background:#000;color:#fff;border:1px solid #333;text-align:center;border-radius:6px;'><br><button class='btn-action' onclick='triggerStep()'>Process Data (Step <span id='clickStep'>1</span>/3)</button>" >> "public/$dir/index.html"
+            badge_html="<span class='badge blue'>$tag</span>"
+            border_color="#3b82f6"
           fi
-          
-          echo "<div id='resultArea' style='margin-top:15px; color:#00ffcc; font-weight:bold;'></div>" >> "public/$dir/index.html"
-          echo "<div id='adLockBox' class='ad-popup-box'><a href='$FINAL_AD_URL' target='_blank'>⚠️ CHANNEL HIGH-LOAD DETECTED! <br> [CLICK HERE TO BYPASS STREAM ADS & STABILIZE PLAYER] ⚡</a></div>" >> "public/$dir/index.html"
-          
-          echo "<script>var currentStep = 1; function triggerStep() { if(currentStep == 1) { document.getElementById('resultArea').innerText = '✅ Server Node 1 Connected! Initializing Audio/Video Sync...'; currentStep = 2; document.getElementById('clickStep').innerText = '2'; } else if(currentStep == 2) { document.getElementById('resultArea').innerText = '✅ Connection Verified! Complete security step below to play.'; currentStep = 3; document.getElementById('clickStep').innerText = '3'; document.getElementById('adLockBox').style.display = 'block'; } else { window.open('$FINAL_AD_URL', '_blank'); document.getElementById('adLockBox').style.display = 'block'; } }</script>" >> "public/$dir/index.html"
-          echo "</div><br><a href='../' class='btn-back'>⬅️ Back to Global Hub</a></body></html>" >> "public/$dir/index.html"
+
+          echo "<div class='site-card' data-title='${title,,}' data-tag='${tag,,}' style='border-left: 4px solid $border_color;'><div>$badge_html<h3 style='margin:12px 0;'>$title</h3></div><div><a href='./$dir/' class='btn-launch' style='background:$border_color;'>🚀 Open Real System</a></div></div>" >> public/index.html
+
+          # --- SUB-PAGES ENGINE WITH SECURE IFRAME WINDOW ---
+          echo "<html lang='en'><head><title>$title</title><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><style>body{background:#090d16; color:#f1f5f9; font-family:sans-serif; text-align:center; margin:0; padding:0;} .nav-bar{background:#111827; padding:15px; border-bottom:1px solid #1f2937; display:flex; justify-content:space-between; align-items:center; padding:10px 20px;} .btn-back{background:#1f2937; color:#fff; padding:8px 15px; text-decoration:none; border-radius:6px; font-size:14px;} .frame-container{width:100%; height:calc(100vh - 70px); border:none;} .ad-overlay{position:fixed; bottom:20px; right:20px; background:linear-gradient(135deg, #ff0055, #ff5500); padding:15px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.5); z-index:99999; text-align:center;} .ad-overlay a{color:#fff; text-decoration:none; font-weight:bold; font-size:14px;}</style></head><body><div class='nav-bar'><a href='../' class='btn-back'>⬅️ Back to Hub</a><h4 style='margin:0; color:#00ffcc;'>🔒 Secure Verified Node: $title</h4><div></div></div>" > "public/$dir/index.html"
+          echo "<iframe class='frame-container' src='$target_url'></iframe>" >> "public/$dir/index.html"
+          echo "<div class='ad-overlay'><a href='$FINAL_AD_URL' target='_blank'>⚡ Premium High-Speed Server <br>[Click to Remove Ads & Support] 🚀</a></div>" >> "public/$dir/index.html"
+          echo "</body></html>" >> "public/$dir/index.html"
         done
 
-        # Matrix for 31 to 100 modules
-        for i in {31..100}; do
-          dir="site-$i"
-          echo "<div class='site-card' data-title='utility core module node-$i' data-tag='automation'><div><span class='badge'>AUTOMATION</span><h3 style='margin:12px 0;'>Utility Module Node-$i</h3></div><div><a href='./$dir/' class='btn-launch'>🚀 Launch Live Tool</a></div></div>" >> public/index.html
-          echo "<html lang='en'><head><title>Module $i</title></head><body style='background:#0b0f19;color:#fff;text-align:center;padding:5px;'><div style='background:#111827;padding:30px;max-width:500px;margin:40px auto;border-radius:12px;'><h2>Enterprise Module Unit $i</h2><button style='padding:12px 20px; font-weight:bold;' onclick='if(!window.c)window.c=1; else window.c++; if(window.c>=2){document.getElementById(\"l\").style.display=\"block\"}else{alert(\"Step \"+window.c+\" Done\")}'>Execute Process</button><br><br><div id='l' style='display:none;'><a href='$FINAL_AD_URL' target='_blank' style='color:#ff5500; font-weight:bold;'>⚠️ Click to Verify Node Session (Ad)</a></div></div></body></html>" > "public/$dir/index.html"
-        done
-
-        # SEARCH ENGINE CODE
-        echo "</div><script>function filterTools(){ var q=document.getElementById('hubSearch').value.toLowerCase().trim(); var cards=document.getElementsByClassName('site-card'); var found=false; for(var i=0; i<cards.length; i++){ var title=cards[i].getAttribute('data-title'); var tag=cards[i].getAttribute('data-tag'); if(title.includes(q) || tag.includes(q)){ cards[i].style.display='flex'; found=true; } else { cards[i].style.display='none'; } } if(!found && q.length > 2){ if(!document.getElementById('ai-card')){ var grid=document.getElementById('mainGrid'); var aiCard=document.createElement('div'); aiCard.className='site-card'; aiCard.id='ai-card'; aiCard.style.border='2px dashed #00ffcc'; aiCard.innerHTML='<div><span class=\'badge\' style=\'background:#00ffcc;color:#000;\'>AI GENERATED</span><h3 id=\'ai-title\' style=\'margin:12px 0;text-transform:capitalize;\'></h3><p style=\'color:#94a3b8;font-size:12px;\'>Our AI Engine has automatically constructed it live!</p></div><div><a href=\'$FINAL_AD_URL\' class=\'btn-launch\' style=\'background:#00ffcc;color:#000;\'>Instant Launch Live</a></div>'; grid.appendChild(aiCard); } document.getElementById('ai-title').innerText=q+' Premium Module'; document.getElementById('ai-card').style.display='flex'; } else if(q.length <= 2 && document.getElementById('ai-card')){ document.getElementById('ai-card').style.display='none'; } }</script></body></html>" >> public/index.html
-        echo "==== Real Scoreboard Engine Compiled Successfully ===="
+        # DYNAMIC SEARCH ENGINE CODES WITH AUTO GOOGLE FALLBACK
+        echo "</div><script>function filterTools(){ var q=document.getElementById('hubSearch').value.toLowerCase().trim(); var cards=document.getElementsByClassName('site-card'); var found=false; for(var i=0; i<cards.length; i++){ var title=cards[i].getAttribute('data-title'); var tag=cards[i].getAttribute('data-tag'); if(title.includes(q) || tag.includes(q)){ cards[i].style.display='flex'; found=true; } else { cards[i].style.display='none'; } } if(!found && q.length > 2){ if(!document.getElementById('ai-card')){ var grid=document.getElementById('mainGrid'); var aiCard=document.createElement('div'); aiCard.className='site-card'; aiCard.id='ai-card'; aiCard.style.border='2px dashed #00ffcc'; aiCard.innerHTML='<div><span class=\'badge\' style=\'background:#00ffcc;color:#000;\'>REAL SEARCH MATRIX</span><h3 id=\'ai-title\' style=\'margin:12px 0;text-transform:capitalize;\'></h3><p style=\'color:#94a3b8;font-size:12px;\'>Click below to open verified global systems instantly.</p></div><div><a href=\'#\' id=\'ai-link\' class=\'btn-launch\' style=\'background:#00ffcc;color:#000;\'>🚀 Launch Real Search</a></div>'; grid.appendChild(aiCard); } document.getElementById('ai-title').innerText=q+' System Node'; document.getElementById('ai-link').href='https://www.google.com/search?q='+encodeURIComponent(q); document.getElementById('ai-link').target='_blank'; document.getElementById('ai-card').style.display='flex'; } else if(q.length <= 2 && document.getElementById('ai-card')){ document.getElementById('ai-card').style.display='none'; } }</script></body></html>" >> public/index.html
+        echo "==== Dual-Engine Web Factory Compiled Successfully ===="
 
     - name: 🚀 Deploy Live Production Stacks
       uses: peaceiris/actions-gh-pages@v3
